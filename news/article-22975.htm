@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-22975.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java开发日志EasyExcel自定义类型转换、Excel表头字段问题</title>
+        <meta name="description" content="1. EasyExcel自定义数据转换  EasyExcel 是阿里的一个用来读取和写入excel的库, 因为项目需要, 所以我需要从前端上传excel文件, 然后导入到数据库中  1.1 自定义转换" />
+        <link rel="icon" href="__ADDON__/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Java开发日志EasyExcel自定义类型转换、Excel表头字段问题</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2><a id="1_EasyExcel_0" rel="nofollow"></a>1. EasyExcel自定义数据转换</h2> <ul> <li>EasyExcel 是阿里的一个用来读取和写入excel的库, 因为项目需要, 所以我需要从前端上传excel文件, 然后导入到数据库中</li> </ul> <h3><a id="11__8" rel="nofollow"></a>1.1 自定义转换类</h3> <ul> <li>因为我前端读取的是日期字符串, 但是实体类上的是日期类, 所以需要手动编写转换类进行转换</li> </ul> <pre><code class="prism language-java"><span class="token keyword">package</span><span class="token namespace">hbut<span class="token punctuation">.</span>community<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>converter</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>converters<span class="token punctuation">.</span></span><span class="token class-name">Converter</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>converters<span class="token punctuation">.</span></span><span class="token class-name">ReadConverterContext</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>converters<span class="token punctuation">.</span></span><span class="token class-name">WriteConverterContext</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CellDataTypeEnum</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>excel<span class="token punctuation">.</span>metadata<span class="token punctuation">.</span>data<span class="token punctuation">.</span></span><span class="token class-name">WriteCellData</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">java<span class="token punctuation">.</span>text<span class="token punctuation">.</span></span><span class="token class-name">SimpleDateFormat</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span><span class="token punctuation">;</span><span class="token annotation punctuation">@Slf4j</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">CustomStringToDateConverter</span><span class="token keyword">implements</span><span class="token class-name">Converter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Date</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{<!-- --></span><span class="token keyword">private</span><span class="token class-name">SimpleDateFormat</span> format<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token function">supportJavaTypeKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token class-name">Converter</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">supportJavaTypeKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">CellDataTypeEnum</span><span class="token function">supportExcelTypeKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token class-name">Converter</span><span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">supportExcelTypeKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * 从excel文件中读取的时候会调用, 返回的是 Date 类型的, 类型在 implements Converter&lt;Date&gt; 指定      * @param context      * @return      * @throws Exception      */</span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">Date</span><span class="token function">convertToJavaData</span><span class="token punctuation">(</span><span class="token class-name">ReadConverterContext</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> context<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">Exception</span><span class="token punctuation">{<!-- --></span><span class="token class-name">String</span> stringValue<span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getReadCellData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getStringValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>stringValue<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> format<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>stringValue<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <ul> <li><code>convertToJavaData</code> 这个方法的作用就是将字符串转换为日期类对象</li> </ul> <h3><a id="12__61" rel="nofollow"></a>1.2 实体类</h3> <ul> <li>使用时直接在字段上面指定即可</li> </ul> <pre><code class="prism language-java"><span class="token annotation punctuation">@Data</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">Bgqk</span><span class="token keyword">extends</span><span class="token class-name">AbstractExcel</span><span class="token punctuation">{<!-- --></span><span class="token comment">/**      * 内部序号      */</span><span class="token annotation punctuation">@ExcelProperty</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"nbxh"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">String</span> nbxh<span class="token punctuation">;</span><span class="token comment">/**      * 变更事项      */</span><span class="token annotation punctuation">@ExcelProperty</span><span class="token punctuation">(</span><span class="token string">"bgsx"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">String</span> bgsx<span class="token punctuation">;</span><span class="token comment">/**      * 变更日期      */</span><span class="token annotation punctuation">@ExcelProperty</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"cqrq"</span><span class="token punctuation">,</span> converter<span class="token operator">=</span><span class="token class-name">CustomStringToDateConverter</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">Date</span> cqrq<span class="token punctuation">;</span><span class="token comment">/**      * 当前数据日期      */</span><span class="token annotation punctuation">@ExcelIgnore</span><span class="token keyword">private</span><span class="token class-name">Date</span> currentDate<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h2><a id="2_Excel_100" rel="nofollow"></a>2. Excel表字段问题</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/1b3e954d3c918e82a2ec714a38c3b38e.jpg" alt="Java开发日志EasyExcel自定义类型转换、Excel表头字段问题"></p> <ul> <li> <p>上图可以看到一个很明显的<code>nbxh(C|50)</code> 后面的<code>(C|50)</code> 并不是表头, 在读取的时候应该是</p> <pre><code class="prism language-java"><span class="token comment">/**      * 内部序号      */</span><span class="token annotation punctuation">@ExcelProperty</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"nbxh"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">String</span> nbxh<span class="token punctuation">;</span></code></pre> </li> <li> <p>字段映射应该是<code>nbxh</code> 而并非是<code>nbxh(C|50)</code></p> </li> </ul> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22517.htm">动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）</a></p>
+                                        <p>下一个：<a href="/news/article-22977.htm">猫打疫苗一共打几针间隔多久（猫打疫苗一共打几针间隔多久打第二针）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-free-node-subscribe-links.htm" title="「8月29日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「8月29日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="「10月8日」最高速度18.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「10月8日」最高速度18.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-node-share.htm" title="「10月14日」最高速度19.5M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月14日」最高速度19.5M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19309.htm" title="CSS 修改滚动条样式 隐藏浏览器滚动条">CSS 修改滚动条样式 隐藏浏览器滚动条</a></li>
+                        <li class="py-2"><a href="/news/article-22516.htm" title="猫咪轻微抓伤破皮要***吗（猫咪抓伤轻微破皮要紧吗）">猫咪轻微抓伤破皮要***吗（猫咪抓伤轻微破皮要紧吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-subscribe-node.htm" title="「9月20日」最高速度19.5M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接">「9月20日」最高速度19.5M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-node-share-links.htm" title="「11月5日」最高速度21.4M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月5日」最高速度21.4M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-node-share.htm" title="「10月2日」最高速度18.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「10月2日」最高速度18.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share.htm" title="「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-high-speed-nodes.htm" title="「9月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「9月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
