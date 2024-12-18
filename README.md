@@ -1,4 +1,4 @@
-# 「12月17日」最高速度22.8M/S，2024年Shadowrocket/V2ray/Clash/SSR免费机场订阅节点链接，翻墙机场推荐  更新时间 2024-12-17 10:22:53
+# 「12月18日」最高速度20.8M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐  更新时间 2024-12-18 14:02:38
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://linuxclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://linuxclash.github.io/uploads/2024/12/0-20241217.yaml
-- https://linuxclash.github.io/uploads/2024/12/1-20241217.yaml
-- https://linuxclash.github.io/uploads/2024/12/2-20241217.yaml
-- https://linuxclash.github.io/uploads/2024/12/3-20241217.yaml
-- https://linuxclash.github.io/uploads/2024/12/4-20241217.yml
+- https://linuxclash.github.io/uploads/2024/12/0-20241218.yaml
+- https://linuxclash.github.io/uploads/2024/12/1-20241218.yaml
+- https://linuxclash.github.io/uploads/2024/12/2-20241218.yaml
+- https://linuxclash.github.io/uploads/2024/12/3-20241218.yaml
+- https://linuxclash.github.io/uploads/2024/12/4-20241218.yml
 
 ### V2ray订阅链接
 
-- https://linuxclash.github.io/uploads/2024/12/0-20241217.txt
-- https://linuxclash.github.io/uploads/2024/12/1-20241217.txt
-- https://linuxclash.github.io/uploads/2024/12/2-20241217.txt
-- https://linuxclash.github.io/uploads/2024/12/3-20241217.txt
-- https://linuxclash.github.io/uploads/2024/12/4-20241217.txt
+- https://linuxclash.github.io/uploads/2024/12/0-20241218.txt
+- https://linuxclash.github.io/uploads/2024/12/1-20241218.txt
+- https://linuxclash.github.io/uploads/2024/12/2-20241218.txt
+- https://linuxclash.github.io/uploads/2024/12/3-20241218.txt
+- https://linuxclash.github.io/uploads/2024/12/4-20241218.txt
 
 ## 更多clash节点订阅 ：
 
