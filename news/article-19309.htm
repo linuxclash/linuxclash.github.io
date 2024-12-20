@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CSS 修改滚动条样式 隐藏浏览器滚动条</title>
         <meta name="description" content="/* 滚动条整体部分 */div::-webkit-scrollbar{}/* 滚动条里面的滑块 */div::-webkit-scrollbar-thumb{}/* 滚动条的轨道的两端按钮 */di" />
-        <link rel="icon" href="__ADDON__/img/linuxclash/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -99,7 +99,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <pre><code class="prism language-css"><span class="token comment">/* 滚动条整体部分 */</span><span class="token selector">div::-webkit-scrollbar</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条里面的滑块 */</span><span class="token selector">div::-webkit-scrollbar-thumb</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条的轨道的两端按钮 */</span><span class="token selector">div::-webkit-scrollbar-button</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条的滑槽 */</span><span class="token selector">div::-webkit-scrollbar-track</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条没有滑块的滑槽部分 */</span><span class="token selector">div::-webkit-scrollbar-track-piece</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 边角，（横纵）两个滚动条的交汇处 */</span><span class="token selector">div::-webkit-scrollbar-corner</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件 */</span><span class="token selector">div::-webkit-resizer</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span></code></pre> <p>注意这些属性只对webkit内核管用，兼容的方法:</p> <ol> <li>隐藏滚动条时，可以用一个色块通过定位盖上去</li> <li>将子级元素调大，父级元素使用overflow-hidden截掉滚动条部分。暴力且直接。</li> </ol> <h2><a id="_24" rel="nofollow"></a>隐藏滚动条</h2> <pre><code class="prism language-css"><span class="token selector">body::-webkit-scrollbar</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token important">!important</span><span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">// Chrome、Opera body</span><span class="token punctuation">{<!-- --></span><span class="token property">-ms-overflow-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">// 微软 body</span><span class="token punctuation">{<!-- --></span><span class="token property">overflow</span><span class="token punctuation">:</span> -moz-scrollbars-none<span class="token punctuation">;</span><span class="token punctuation">}</span> // Firefox</code></pre> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <pre><code class="prism language-css"><span class="token comment">/* 滚动条整体部分 */</span><span class="token selector">div::-webkit-scrollbar</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条里面的滑块 */</span><span class="token selector">div::-webkit-scrollbar-thumb</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条的轨道的两端按钮 */</span><span class="token selector">div::-webkit-scrollbar-button</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条的滑槽 */</span><span class="token selector">div::-webkit-scrollbar-track</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 滚动条没有滑块的滑槽部分 */</span><span class="token selector">div::-webkit-scrollbar-track-piece</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 边角，（横纵）两个滚动条的交汇处 */</span><span class="token selector">div::-webkit-scrollbar-corner</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token comment">/* 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件 */</span><span class="token selector">div::-webkit-resizer</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span></code></pre> <p>注意这些属性只对webkit内核管用，兼容的方法:</p> <ol> <li>隐藏滚动条时，可以用一个色块通过定位盖上去</li> <li>将子级元素调大，父级元素使用overflow-hidden截掉滚动条部分。暴力且直接。</li> </ol> <h2><a id="_24" rel="nofollow"></a>隐藏滚动条</h2> <pre><code class="prism language-css"><span class="token selector">body::-webkit-scrollbar</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token important">!important</span><span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">// Chrome、Opera body</span><span class="token punctuation">{<!-- --></span><span class="token property">-ms-overflow-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">// 微软 body</span><span class="token punctuation">{<!-- --></span><span class="token property">overflow</span><span class="token punctuation">:</span> -moz-scrollbars-none<span class="token punctuation">;</span><span class="token punctuation">}</span> // Firefox</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-18880.htm">动物兽用疫苗造假如何检测 动物兽用疫苗造假如何检测出来</a></p>
                                         <p>下一个：<a href="/news/article-19310.htm">宠物领养协议模板下载电子版（宠物领养协议书电子版）</a></p>
@@ -112,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-node-subscribe.htm" title="「10月28日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「10月28日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-11-hiddify-next-windows.htm" title="「8月11日」最高速度19.4M/S，2024年HiddifyNext每天更新免费节点订阅链接">「8月11日」最高速度19.4M/S，2024年HiddifyNext每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-node-subscribe-links.htm" title="「8月23日」最高速度20.9M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「8月23日」最高速度20.9M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share.htm" title="「10月1日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「10月1日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-subscribe-node.htm" title="「11月26日」最高速度19.5M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「11月26日」最高速度19.5M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-node-share-links.htm" title="「10月19日」最高速度20.9M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐">「10月19日」最高速度20.9M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-17-node-share-links.htm" title="「8月17日」最高速度19.1M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接">「8月17日」最高速度19.1M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-19767.htm" title="JS encodeURI和encodeURIComponent()方法的使用">JS encodeURI和encodeURIComponent()方法的使用</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-node-subscribe-links.htm" title="「9月21日」最高速度21M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「9月21日」最高速度21M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="「10月10日」最高速度18.3M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「10月10日」最高速度18.3M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe-links.htm" title="「12月5日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐">「12月5日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share.htm" title="「11月18日」最高速度22M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月18日」最高速度22M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-high-speed-nodes.htm" title="「8月25日」最高速度22.4M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接">「8月25日」最高速度22.4M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-subscribe-node.htm" title="「9月25日」最高速度19.3M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接">「9月25日」最高速度19.3M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-subscribe-node.htm" title="「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="「11月15日」最高速度23M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月15日」最高速度23M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-node-subscribe-links.htm" title="「10月23日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「10月23日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-node-share.htm" title="「9月11日」最高速度20.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「9月11日」最高速度20.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="「10月17日」最高速度18.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「10月17日」最高速度18.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-21145.htm" title="宠物粮厂名称好寓意吗怎么取（宠物粮厂家）">宠物粮厂名称好寓意吗怎么取（宠物粮厂家）</a></li>
                     </ul>
     </div>
 </div>
@@ -133,7 +134,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -160,6 +161,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                     LinuxClash免费节点官网 版权所有 Powered by WordPress
                 </p>
                 <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
