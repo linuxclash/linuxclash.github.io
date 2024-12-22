@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-29470.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DataView和DataTable的区别、联系、以及相互转化方法</title>
+        <meta name="description" content="一、定义区别   DataTable：表示内存中数据的一个表，它完全是在内存中的一个独立存在，包含了这张表的全部信息。 建立方式 ①通过连接数据库后从中读取出来跟数据源断开、独立存在的一个表； ②完全" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>DataView和DataTable的区别、联系、以及相互转化方法</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>一、定义区别</h2> <ol> <li> <p><strong>DataTable</strong>：表示内存中数据的一个表，它完全是在内存中的一个独立存在，包含了这张表的全部信息。</p> <p><strong>建立方式</strong><br /> ①通过连接数据库后从中读取出来跟数据源断开、独立存在的一个表；<br /> ②完全由程序通过代码来建立的一个表。</p> </li> <li> <p><strong>DataView</strong>：表示用于排序、筛选、搜索、编辑和导航的 DataTable 的<strong>可绑定数据</strong>的自定义视图。</p> </li> <li> <p><strong>DataRowView</strong>：表示</p> </li> </ol> <p>通过DataRowView.Row 属性得到此DataRowView对应的DataRow</p> <p><strong>可以将DataView同数据库的视图类比，不过二者存在以下区别。</strong></p> <table> <thead> <tr> <th>DataView</th> <th>视图</th> </tr> </thead> <tbody> <tr> <td>只能对某一个DataTable建立视图</td> <td>可以跨表建立视图</td> </tr> <tr> <td>通过DataTable.DefaultView属性来建立，通过DataTable.DefaultView的RowFilter 属性和RowStateFilter 属性筛选这个DataTable的一个行子集。</td> <td></td> </tr> </tbody> </table> <h2> <a id="_20" rel="nofollow"></a>二、相互联系</h2> <table> <thead> <tr> <th>DataView</th> <th>DataTable</th> </tr> </thead> <tbody> <tr> <td>建立在DataTable基础上</td> <td></td> </tr> <tr> <td>DataView.Table 属性可以得到此DataView对应的DataTable</td> <td></td> </tr> <tr> <td>DataView dv = dt.DefaultView;</td> <td>DataTable dt = dv.ToTable();</td> </tr> </tbody> </table> <p>DataView的toTable和Table</p> <table> <thead> <tr> <th>toTable</th> <th>Table</th> </tr> </thead> <tbody> <tr> <td>方法</td> <td>属性</td> </tr> <tr> <td>通过RowFilter等过滤后的数据创建新实例</td> <td>返回原始数据</td> </tr> <tr> <td>会对DataView本身的数据产生影响</td> <td>不会对DataView本身的数据产生影响</td> </tr> </tbody> </table> <h2> <a id="_34" rel="nofollow"></a>三、相互转化</h2> <p>1.<strong>dataTable转成dataview</strong><br /> 方法一：</p> <pre><code class="prism language-csharp">        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>dt <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>dt<span class="token punctuation">.</span>Rows<span class="token punctuation">)</span><span class="token punctuation">.</span>Count <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>         <span class="token class-name">IEnumerable</span>  dv <span class="token operator">=</span> <span class="token punctuation">(</span>IEnumerable<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>IListSource<span class="token punctuation">)</span>dt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//将datatable转成dataview</span>         <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name">Object</span> o <span class="token keyword">in</span> dv<span class="token punctuation">)</span>         <span class="token punctuation">{<!-- --></span>             <span class="token class-name">PropertyDescriptorCollection</span> propDesColl <span class="token operator">=</span> TypeDescriptor<span class="token punctuation">.</span><span class="token function">GetProperties</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name">PropertyDescriptor</span> pd <span class="token keyword">in</span> propDesColl<span class="token punctuation">)</span>             <span class="token punctuation">{<!-- --></span>                 <span class="token class-name">Type</span> type <span class="token operator">=</span> pd<span class="token punctuation">.</span>PropertyType<span class="token punctuation">;</span>             <span class="token punctuation">}</span>         <span class="token punctuation">}</span></code></pre> <p>方法二：</p> <pre><code class="prism language-csharp"><span class="token class-name">IEnumerable</span> dv <span class="token operator">=</span> <span class="token punctuation">(</span>IEnumerable<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>IListSource<span class="token punctuation">)</span>dt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">GetList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>2.<strong>将DataView转换为DataTable</strong></p> <p>(1).DataView.ToTable()<br /> 根据现有DataView中的行，创建并返回一个新的DataTable。</p> <p>(2).DataView.ToTable(String)<br /> 参数String为返回的DataTable的名称。</p> <p>注意：输出的表与输入表的列相同，不可自定义。</p> <p>(3).DataView.ToTable(Boolean,String[]) || DataView.ToTable(Boolean,String[],String[],…)<br /> 参数Boolean为true，去重；为false，不去重。</p> <p>数组String[]为显示返回列值的集合。去重是针对String去重的。</p> <p>注意：参数Boolean且默认为false；可自定义返回的列。</p> <pre><code class="prism language-csharp"><span class="token class-name">DataView</span> dv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DataView</span><span class="token punctuation">(</span>table<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//table是DataTable类型的对象</span> table <span class="token operator">=</span> dv<span class="token punctuation">.</span><span class="token function">ToTable</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">,</span><span class="token string">"ID"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//去重，且只返回ID列</span></code></pre> <p>(4).DataView.ToTable(String,Boolean,String[])<br /> 根据现有DataView中的行，创建并返回一个新的DataTable。比3多一个参数，可以定义返回表的名称。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29007.htm">动物疫苗研究现状分析（动物疫苗的发展现状）</a></p>
+                                        <p>下一个：<a href="/news/article-29471.htm">宠物美容师大概多少钱一个月（宠物美容师月薪多少）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-node-share-links.htm" title="「10月16日」最高速度18M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月16日」最高速度18M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-29470.htm" title="DataView和DataTable的区别、联系、以及相互转化方法">DataView和DataTable的区别、联系、以及相互转化方法</a></li>
+                        <li class="py-2"><a href="/news/article-25291.htm" title="领养宠物赚收益吗（领养宠物要花钱吗）">领养宠物赚收益吗（领养宠物要花钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-node-subscribe.htm" title="「12月18日」最高速度21.9M/S，2024年Shadowrocket/V2ray/SSR/Clash免费机场订阅节点链接，翻墙机场推荐">「12月18日」最高速度21.9M/S，2024年Shadowrocket/V2ray/SSR/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-high-speed-nodes.htm" title="「9月2日」最高速度20.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「9月2日」最高速度20.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share.htm" title="「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-node-share.htm" title="「9月5日」最高速度19.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「9月5日」最高速度19.2M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share-links.htm" title="「12月16日」最高速度21.3M/S，2024年V2ray/Shadowrocket/SSR/Clash免费机场订阅节点链接，翻墙机场推荐">「12月16日」最高速度21.3M/S，2024年V2ray/Shadowrocket/SSR/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-node-subscribe-links.htm" title="「9月21日」最高速度21M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接">「9月21日」最高速度21M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
