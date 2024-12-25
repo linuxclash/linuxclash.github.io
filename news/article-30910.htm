@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-30910.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>python对svn进行操作及信息获取</title>
+        <meta name="description" content="1、通过python获取路径下所有文件的svn状态2、通过python对svn进行“提交、删除、锁、解锁、删除等操作”3、通过svn打开小乌龟界面  """ SVN状态对照表 """ class Fi" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>python对svn进行操作及信息获取</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p><strong>1、通过python获取路径下所有文件的svn状态</strong><br /><strong>2、通过python对svn进行“提交、删除、锁、解锁、删除等操作”</strong><br /><strong>3、通过svn打开小乌龟界面</strong></p> </h1> <pre><code class="prism language-python"><span class="token triple-quoted-string string">""" SVN状态对照表 """</span> <span class="token keyword">class</span> <span class="token class-name">FileState</span><span class="token punctuation">:</span>     Normal <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment"># 000000 正常在svn管理下的最新的文件</span>     RemoteLocked <span class="token operator">=</span> <span class="token number">1</span>  <span class="token comment"># 000001 云端锁定态</span>     LocalLocked <span class="token operator">=</span> <span class="token number">2</span>  <span class="token comment"># 000010 本地锁定态</span>     Locked <span class="token operator">=</span> <span class="token number">3</span>  <span class="token comment"># 000011 已锁定 state and Locked == True</span>     LocalMod <span class="token operator">=</span> <span class="token number">4</span>  <span class="token comment"># 000100 本地有修改需提交</span>     RemoteMod <span class="token operator">=</span> <span class="token number">8</span>  <span class="token comment"># 001000 远程有修改需要更新</span>     Conflicked <span class="token operator">=</span> <span class="token number">12</span>  <span class="token comment"># 001100 冲突 state and Conflicked == Conflicked</span>     UnVersioned <span class="token operator">=</span> <span class="token number">16</span>  <span class="token comment"># 010000 未提交到库</span>     Error <span class="token operator">=</span> <span class="token number">32</span>  <span class="token comment"># 100000 错误状态</span> </code></pre> <pre><code class="prism language-python"><span class="token triple-quoted-string string">""" 具体实现逻辑 """</span> <span class="token comment"># -*- coding: utf-8 -*-</span> <span class="token keyword">import</span> os <span class="token keyword">import</span> pprint <span class="token keyword">import</span> subprocess <span class="token keyword">import</span> time <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread <span class="token keyword">from</span> xmltodict <span class="token keyword">import</span> parse <span class="token keyword">as</span> xmlParse   <span class="token keyword">def</span> <span class="token function">_doSvnCommandSync</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>     startupinfo <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>STARTUPINFO<span class="token punctuation">(</span><span class="token punctuation">)</span>     startupinfo<span class="token punctuation">.</span>dwFlags <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>CREATE_NEW_CONSOLE <span class="token operator">|</span> subprocess<span class="token punctuation">.</span>STARTF_USESHOWWINDOW     startupinfo<span class="token punctuation">.</span>wShowWindow <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>SW_HIDE     p <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span>         args<span class="token punctuation">,</span>         stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>         stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>         startupinfo<span class="token operator">=</span>startupinfo<span class="token punctuation">,</span>         shell<span class="token operator">=</span><span class="token boolean">True</span>     <span class="token punctuation">)</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> p<span class="token punctuation">.</span>communicate<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token keyword">try</span><span class="token punctuation">:</span>         rst <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>rst<span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span>     <span class="token keyword">except</span><span class="token punctuation">:</span>         rst <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>rst<span class="token punctuation">,</span> <span class="token string">'gbk'</span><span class="token punctuation">,</span> errors<span class="token operator">=</span><span class="token string">"-ignore"</span><span class="token punctuation">)</span>     <span class="token keyword">try</span><span class="token punctuation">:</span>         err <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span>     <span class="token keyword">except</span><span class="token punctuation">:</span>         err <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> <span class="token string">'gbk'</span><span class="token punctuation">,</span> errors<span class="token operator">=</span><span class="token string">"-ignore"</span><span class="token punctuation">)</span>     <span class="token keyword">return</span> rst<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">svnCommitNoUnlockSync</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> comment<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn commit "</span> <span class="token operator">+</span> path <span class="token operator">+</span> <span class="token string">" -m \""</span> <span class="token operator">+</span> comment <span class="token operator">+</span> <span class="token string">"\""</span> <span class="token operator">+</span> <span class="token string">" --no-unlock"</span><span class="token punctuation">)</span>     <span class="token keyword">return</span> rst<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">svnCommitSync</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> comment<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn commit "</span> <span class="token operator">+</span> path <span class="token operator">+</span> <span class="token string">" -m \""</span> <span class="token operator">+</span> comment <span class="token operator">+</span> <span class="token string">"\""</span><span class="token punctuation">)</span>     <span class="token keyword">return</span> rst<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">_svnStatusSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn status "</span> <span class="token operator">+</span> path<span class="token punctuation">)</span>     <span class="token keyword">if</span> err<span class="token punctuation">:</span>         <span class="token keyword">return</span> <span class="token boolean">None</span><span class="token punctuation">,</span> err     data <span class="token operator">=</span> rst     <span class="token keyword">return</span> data<span class="token punctuation">,</span> <span class="token boolean">None</span>   <span class="token keyword">def</span> <span class="token function">svnLockSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn lock -m '哈哈哈哈哈哈' "</span> <span class="token operator">+</span> path<span class="token punctuation">)</span>     <span class="token keyword">return</span> rst<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">svnAddSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     data<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn add "</span> <span class="token operator">+</span> path<span class="token punctuation">)</span>     <span class="token keyword">return</span> data<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">svnUnLockSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn unlock "</span> <span class="token operator">+</span> path<span class="token punctuation">)</span>     <span class="token keyword">return</span> rst<span class="token punctuation">,</span> err   <span class="token keyword">def</span> <span class="token function">svnDeleteSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">return</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn delete "</span> <span class="token operator">+</span> path<span class="token punctuation">)</span>   <span class="token keyword">def</span> <span class="token function">_svnStatusXMLSync</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>     rst<span class="token punctuation">,</span> err <span class="token operator">=</span> _doSvnCommandSync<span class="token punctuation">(</span><span class="token string">"svn status "</span> <span class="token operator">+</span> path <span class="token operator">+</span> <span class="token string">" -u --xml"</span><span class="token punctuation">)</span>     <span class="token keyword">if</span> err<span class="token punctuation">:</span>         <span class="token keyword">return</span> <span class="token boolean">None</span><span class="token punctuation">,</span> err     data <span class="token operator">=</span> rst     data <span class="token operator">=</span> xmlParse<span class="token punctuation">(</span>data<span class="token punctuation">)</span>     <span class="token keyword">return</span> data<span class="token punctuation">,</span> <span class="token boolean">None</span>   <span class="token keyword">def</span> <span class="token function">syncGetAllFileStatus</span><span class="token punctuation">(</span>rootPath<span class="token punctuation">)</span><span class="token punctuation">:</span>     data<span class="token punctuation">,</span> info <span class="token operator">=</span> _svnStatusXMLSync<span class="token punctuation">(</span>rootPath<span class="token punctuation">)</span>     returnDict <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span>     lockRole <span class="token operator">=</span> <span class="token string">""</span>     state <span class="token operator">=</span> FileState<span class="token punctuation">.</span>Normal     <span class="token keyword">if</span> info<span class="token punctuation">:</span>         <span class="token keyword">if</span> data <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>             state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>UnVersioned         <span class="token keyword">else</span><span class="token punctuation">:</span>             state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>Error         <span class="token keyword">return</span> returnDict     target <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">"status"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"target"</span><span class="token punctuation">]</span>      <span class="token keyword">if</span> target <span class="token keyword">and</span> <span class="token string">"entry"</span> <span class="token keyword">in</span> target<span class="token punctuation">:</span>         iterList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>         <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>target<span class="token punctuation">[</span><span class="token string">"entry"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>             iterList<span class="token punctuation">.</span>append<span class="token punctuation">(</span>target<span class="token punctuation">[</span><span class="token string">"entry"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>         <span class="token keyword">else</span><span class="token punctuation">:</span>             iterList <span class="token operator">=</span> target<span class="token punctuation">[</span><span class="token string">"entry"</span><span class="token punctuation">]</span>         <span class="token keyword">for</span> fileStatusItem <span class="token keyword">in</span> iterList<span class="token punctuation">:</span>             state <span class="token operator">=</span> FileState<span class="token punctuation">.</span>Normal             filePath <span class="token operator">=</span> fileStatusItem<span class="token punctuation">[</span><span class="token string">"@path"</span><span class="token punctuation">]</span>             wc_status <span class="token operator">=</span> fileStatusItem<span class="token punctuation">[</span><span class="token string">"wc-status"</span><span class="token punctuation">]</span>             <span class="token keyword">if</span> <span class="token string">"unversioned"</span> <span class="token operator">==</span> wc_status<span class="token punctuation">[</span><span class="token string">"@item"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                 state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>UnVersioned             <span class="token keyword">elif</span> <span class="token string">"modified"</span> <span class="token operator">==</span> wc_status<span class="token punctuation">[</span><span class="token string">"@item"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                 state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>LocalMod             <span class="token keyword">elif</span> <span class="token string">"repos-status"</span> <span class="token keyword">in</span> fileStatusItem<span class="token punctuation">:</span>                 repos_status <span class="token operator">=</span> fileStatusItem<span class="token punctuation">[</span><span class="token string">"repos-status"</span><span class="token punctuation">]</span>                 <span class="token keyword">if</span> <span class="token string">"lock"</span> <span class="token keyword">in</span> repos_status <span class="token keyword">and</span> <span class="token string">"lock"</span> <span class="token keyword">not</span> <span class="token keyword">in</span> wc_status<span class="token punctuation">:</span>                     info <span class="token operator">=</span> repos_status<span class="token punctuation">[</span><span class="token string">"lock"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"owner"</span><span class="token punctuation">]</span>                     lockRole <span class="token operator">=</span> info                     state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>RemoteLocked                 <span class="token keyword">elif</span> <span class="token string">"lock"</span> <span class="token keyword">in</span> wc_status<span class="token punctuation">:</span>                     info <span class="token operator">=</span> wc_status<span class="token punctuation">[</span><span class="token string">"lock"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"owner"</span><span class="token punctuation">]</span>                     lockRole <span class="token operator">=</span> info                     state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>LocalLocked                 <span class="token keyword">elif</span> <span class="token string">"modified"</span> <span class="token operator">==</span> repos_status<span class="token punctuation">[</span><span class="token string">"@item"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                     state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>RemoteMod                     info <span class="token operator">=</span> <span class="token string">"%s is modified on remote, you need update first"</span> <span class="token operator">%</span> filePath                 <span class="token keyword">if</span> <span class="token string">"modified"</span> <span class="token operator">==</span> wc_status<span class="token punctuation">[</span><span class="token string">"@item"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                     state <span class="token operator">=</span> state <span class="token operator">|</span> FileState<span class="token punctuation">.</span>LocalMod                     info <span class="token operator">=</span> <span class="token string">"%s is modified on local, you need commit first"</span> <span class="token operator">%</span> filePath             returnDict<span class="token punctuation">[</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>normcase<span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>state<span class="token punctuation">,</span> info<span class="token punctuation">,</span> lockRole<span class="token punctuation">]</span>     <span class="token keyword">return</span> returnDict   <span class="token keyword">def</span> <span class="token function">openTortoise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     pathsStr <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"G:\SVNCheckOut\Txt2"</span><span class="token punctuation">)</span>     cmd <span class="token operator">=</span> <span class="token string">"TortoiseProc.exe /command:commit /path %s"</span> <span class="token operator">%</span> pathsStr     p <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span>         cmd<span class="token punctuation">,</span>         stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>         stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>         encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>         shell<span class="token operator">=</span><span class="token boolean">True</span>     <span class="token punctuation">)</span>   <span class="token comment"># class Process(subprocess.Popen):</span> <span class="token comment">#     def register_callback(self, callback, *args, **kwargs):</span> <span class="token comment">#         Thread(target=self._poll_completion, args=(callback, args, kwargs)).start()</span> <span class="token comment">#</span> <span class="token comment">#     def _poll_completion(self, callback, args, kwargs):</span> <span class="token comment">#         while self.poll() is None:</span> <span class="token comment">#             time.sleep(0.1)</span> <span class="token comment">#         callback(*args, **kwargs)</span>   <span class="token comment"># def openTortoise():</span> <span class="token comment">#     pathsStr = "".join("G:\SVNCheckOut\Version1")</span> <span class="token comment">#     cmd = "TortoiseProc.exe /command:commit /path %s" % pathsStr</span> <span class="token comment">#     handle = Process(cmd)</span> <span class="token comment">#     handle.register_callback(MyPrint)</span>   <span class="token comment"># def MyPrint():</span> <span class="token comment">#     print("~~~~~~~~~~~~~~~~~")</span>   openTortoise<span class="token punctuation">(</span><span class="token punctuation">)</span>  data <span class="token operator">=</span> syncGetAllFileStatus<span class="token punctuation">(</span><span class="token string">r"G:\SVNCheckOut\Txt2"</span><span class="token punctuation">)</span> pprint<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>data<span class="token punctuation">)</span> os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"Pause"</span><span class="token punctuation">)</span>   </code></pre> </h1> <h2> <a id="1_198" rel="nofollow"></a>1、上述代码最终会有两个输出展示</h2> <h3> <a id="a_200" rel="nofollow"></a>a、打开小乌龟提交界面</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230109/3d2697a0a6eb9d020b57f46f1d633f99.jpg" alt="python对svn进行操作及信息获取"><br /><strong>这里对应的其实就是 “TortoiseProc.exe /command:commit /path %s” % pathsStr" 这句命令行的运行</strong></p> <h3> <a id="bSVN__204" rel="nofollow"></a>b、展示SVN 文件状态</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230109/b2958f4ed38b57a399bdd20ec4f9ee40.jpg" alt="python对svn进行操作及信息获取"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/b721f59611e170668e552b2e3232d423.jpg" alt="python对svn进行操作及信息获取"><br /><strong>我们需要查看上述 “svn状态对照表”，可以发现状态码 “2、4、16” 分别对应的就是 “本地锁定、本地有修改、未提交到库”，并且到文件夹中查看可知是一一对应的</strong></p> <h2> <a id="2_209" rel="nofollow"></a>2、代码解析</h2> <p><strong>首先，我们看 “_doSvnCommandSync” 该函数的实质就是运行命令行</strong></p> <p><strong>我们将svn的各种命令行传入上述函数 “_doSvnCommandSync”，以此构造了python内的 "提交、删除、锁、解锁 等函数"</strong></p> <p><strong>比较特殊的是 “_svnStatusXMLSync” 这个获取svn状态的函数，因为我们是将其以xml的格式输出，因此要对其结构进行解析，“svn status " + path + " -u --xml” 这条指令能够获取 path路径下所有文件的svn状态，我们在 “syncGetAllFileStatus” 函数中对其解析便可以得到我们想要的信息，包括 锁的相关信息、提交信息、文件状态等</strong><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://svn.apache.org/viewvc/subversion/trunk/subversion/svn/schema/status.rnc?view=markup"  rel="nofollow">svn --xml的状态可以查看这里</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30432.htm">合肥宠物领养救助站电话是多少（合肥宠物救助站领养宠物）</a></p>
+                                        <p>下一个：<a href="/news/article-30911.htm">成都宠物回收店电话（成都宠物狗回收电话）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share.htm" title="「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月28日」最高速度21M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐">「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-free-subscribe-node.htm" title="「8月22日」最高速度22.6M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接">「8月22日」最高速度22.6M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="「10月31日」最高速度19.8M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月31日」最高速度19.8M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe-links.htm" title="「8月13日」最高速度18.6M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接">「8月13日」最高速度18.6M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-subscribe-node.htm" title="「12月24日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「12月24日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe-links.htm" title="「12月5日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐">「12月5日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-subscribe-node.htm" title="「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-node-subscribe.htm" title="「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
