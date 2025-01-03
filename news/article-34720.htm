@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-34720.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>go语言panic函数详解</title>
+        <meta name="description" content="程序异常被叫做panic，直译为运行时恐慌 当panic被抛出异常后，如果我们没有在程序中添加任何保护措施的话，程序就会打印出panic的详细情况之后，终止运行  panic: runtime err" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>go语言panic函数详解</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <hr/> <p>程序异常被叫做panic，直译为运行时恐慌<br /> 当panic被抛出异常后，如果我们没有在程序中添加任何保护措施的话，程序就会打印出panic的详细情况之后，终止运行</p> <hr/> <pre><code>panic: runtime error: index out of range  goroutine 1 [running]: main.main() D:/go_workspace/Golang_Puzzlers/src/puzzlers/article19/q0/demo47.go:5 +0x11 </code></pre> <p>这份异常的第一个信息是<code>panic: runtime error: index out of range</code>其中的<code>runtime error</code>的含义是，这是一个runtime代码中抛出的panic，在这个panic中，包含了一个runtime.Error接口类型的值。runtime.Error接口内嵌了error接口并做了一点扩展<br /> 此外，panic 详情中一般还会包含与它的引发原因有关的 goroutine 的代码执行信息。正如前述详情中的“goroutine 1 [running]”，它表示有一个 ID 为1，这里的id并不重要，因为它只是go语言运行时系统内部给与的一个goroutine编号。<br /> “main.main()”表明了这个 goroutine 包装的函数就是命令源码文件中的那个函数，也就是说这里的 goroutine 正是主 goroutine。再下面的一行，指出的就是这个 goroutine 中的哪一行代码在此 panic 被引发时正在执行。<br /> 最后一行+0x3d代表的是：此行代码相对于其所属函数的入口程序计数偏移量。不过，一般情况下它的用处并不大。<br /> “exit status 2”表明我的这个程序是以退出状态码结束运行的。在大多数操作系统中，只要退出状态码不是，都意味着程序运行的非正常结束。在 Go 语言中，因 panic 导致程序结束运行的退出状态码一般都会是。</p> <hr/> <p>panic 被引发到程序终止运行的大致过程<br /> 某个函数中的某行代码有意或无意地引发了一个 panic。这时，初始的 panic 详情会被建立起来，并且该程序的控制权会立即从此行代码转移至调用其所属函数的那行代码上，也就是调用栈中的上一级。<br /> 这也意味着，此行代码所属函数的执行随即终止。紧接着，控制权并不会在此有片刻停留，它又会立即转移至再上一级的调用代码处。控制权如此一级一级地沿着调用栈的反方向传播至顶端，也就是我们编写的最外层函数那里。<br /> 这里的最外层函数指的是函数，对于主 goroutine 来说就是函数。但是控制权也不会停留在那里，而是被 Go 语言运行时系统收回。<br /> 随后，程序崩溃并终止运行，承载程序这次运行的进程也会随之死亡并消失。与此同时，在这个控制权传播的过程中，panic 详情会被逐渐地积累和完善，并会在程序终止之前被打印出来。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34246.htm">动物打的疫苗多少钱一针啊（动物打的疫苗多少钱一针啊视频）</a></p>
+                                        <p>下一个：<a href="/news/article-34721.htm">云南农业大学动物医学院院长（云南农业大学动物科学）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-node-subscribe.htm" title="「9月30日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接">「9月30日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-node-share-links.htm" title="「11月13日」最高速度19.8M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月13日」最高速度19.8M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-29942.htm" title="宠物领养店怎么收费的（宠物店领养需要钱吗）">宠物领养店怎么收费的（宠物店领养需要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-subscribe-node.htm" title="「10月6日」最高速度23M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「10月6日」最高速度23M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22516.htm" title="猫咪轻微抓伤破皮要***吗（猫咪抓伤轻微破皮要紧吗）">猫咪轻微抓伤破皮要***吗（猫咪抓伤轻微破皮要紧吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="「12月9日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「12月9日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-34721.htm" title="云南农业大学动物医学院院长（云南农业大学动物科学）">云南农业大学动物医学院院长（云南农业大学动物科学）</a></li>
+                        <li class="py-2"><a href="/news/article-20227.htm" title="北京有鹦鹉的公园在哪里（北京大兴鹦鹉公园）">北京有鹦鹉的公园在哪里（北京大兴鹦鹉公园）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-node-share-links.htm" title="「9月16日」最高速度19.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接">「9月16日」最高速度19.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-high-speed-nodes.htm" title="「9月2日」最高速度20.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接">「9月2日」最高速度20.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
