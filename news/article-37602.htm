@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-37602.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Appium+Python+Android自动化のdesired_caps会话参数</title>
+        <meta name="description" content="&nbsp;参数详解请见代码： from appium import webdriver from time import sleep  if __name__ == '__main__':     " />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Appium+Python+Android自动化のdesired_caps会话参数</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp;参数详解请见代码：</p> <pre><code class="language-python">from appium import webdriver from time import sleep  if __name__ == '__main__':     desired_caps = {}      # 必填参数：      #platformName：操作系统名（iOS, Android, FirefoxOS）     desired_caps['platformName'] = 'Android'      # deviceName：设备名（值有意义即可）     desired_caps['deviceName'] = 'Android Emulator'      # 指定要操作的APP有两种方式：         # 方式1（APP如果没有安装，自动安装）：     # app：apk的绝对路径     desired_caps['app'] = r"D:\AppPackage\TestApks\ApiDemos-debug.apk"         # 方式2（APP必须预先安装）：     # appPackage：应用的包名。appActivity：应用的任意窗口名。     # 这两参数需要一起指定。     desired_caps['appPackage'] = 'com.android.androidui'     desired_caps['appActivity'] = '.MainActivity'      # 可选参数：      # platformVersion：操作系统版本     # 在设置里查看。6是主版本号，0是次版本号，1是修订号。     desired_caps['platformVersion'] = '6.0.1'     desired_caps['platformVersion'] = '6.0'     desired_caps['platformVersion'] = '6'      # unicodeKeyboard和resetKeyboard：使用中文字符输入。     # 这两参数需要一起指定，值是布尔值。     desired_caps['unicodeKeyboard'] = True     desired_caps['resetKeyboard'] = True      # automationName：指定想使用的自动化测试引擎。     # ①Appium（uiautomator）：不指定的话默认     desired_caps['automationName'] = 'Appium'     # ②Selendroid：支持安卓4.2之前的版本，报错     desired_caps['automationName'] = 'Selendroid'     # ③uiautomator2：支持安卓6.0之后的版本     desired_caps['automationName'] = 'uiautomator2'      # udid：如果连接真机测试，必须指定设备的id（在adb devides里或设置里查看）     desired_caps['udid'] = '7N3HPX159H051514'     # 真机测试需要做的事情:     # ①打开开发者模式和USB调试模式     # ②在电脑上安装手机驱动     # ③用USB连接手机和电脑      driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)      driver.find_element_by_id('android:id/text1').click()      # 启动一个窗口。     # 可以打开本APP的任意窗口，还可以打开其他APP的任意窗口，前提是APP已安装。     driver.start_activity('io.selendroid.testapp','.HomeScreenActivity')      driver.back()      sleep(2)     driver.quit()</code></pre> <p>from appium import webdriver<br /> from time import sleep<br /> &nbsp;<br /> if __name__ == '__main__':<br /> &nbsp;&nbsp;&nbsp; desired_caps = {}<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 必填参数：<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; #<span style="color:#f33b45;"><strong>platformName</strong></span>：操作系统名（<span style="color:#86ca5e;"><strong>iOS, Android, FirefoxOS</strong></span>）<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformName'] = 'Android'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">deviceName</span></strong>：设备名（值有意义即可）<br /> &nbsp;&nbsp;&nbsp; desired_caps['deviceName'] = 'Android Emulator'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 指定要操作的APP有两种方式：<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 方式1（APP如果没有安装，自动安装）：<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">app</span></strong>：apk的绝对路径<br /> &nbsp;&nbsp;&nbsp; desired_caps['app'] = r"D:\AppPackage\TestApks\ApiDemos-debug.apk"<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 方式2（APP必须预先安装）：<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">appPackage</span></strong>：应用的包名。<strong><span style="color:#f33b45;">appActivity</span></strong>：应用的任意窗口名。<br /> &nbsp;&nbsp;&nbsp; # 这两参数需要一起指定。<br /> &nbsp;&nbsp;&nbsp; desired_caps['appPackage'] = 'com.android.androidui'<br /> &nbsp;&nbsp;&nbsp; desired_caps['appActivity'] = '.MainActivity'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 可选参数：<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">platformVersion</span></strong>：操作系统版本<br /> &nbsp;&nbsp;&nbsp; # 在设置里查看。6是主版本号，0是次版本号，1是修订号。<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6.0.1'<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6.0'<br /> &nbsp;&nbsp;&nbsp; desired_caps['platformVersion'] = '6'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">unicodeKeyboard</span></strong>和<strong><span style="color:#f33b45;">resetKeyboard</span></strong>：使用中文字符输入。<br /> &nbsp;&nbsp;&nbsp; # 这两参数需要一起指定，值是布尔值。<br /> &nbsp;&nbsp;&nbsp; desired_caps['unicodeKeyboard'] = <span style="color:#86ca5e;"><strong>True</strong></span><br /> &nbsp;&nbsp;&nbsp; desired_caps['resetKeyboard'] = <span style="color:#86ca5e;"><strong>True</strong></span><br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">automationName</span></strong>：指定想使用的自动化测试引擎。<br /> &nbsp;&nbsp;&nbsp; # ①<strong><span style="color:#86ca5e;">Appium</span></strong>（uiautomator）：不指定的话默认<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'Appium'<br /> &nbsp;&nbsp;&nbsp; # ②<strong><span style="color:#86ca5e;">Selendroid</span></strong>：支持安卓4.2之前的版本，报错<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'Selendroid'<br /> &nbsp;&nbsp;&nbsp; # ③<strong><span style="color:#86ca5e;">uiautomator2</span></strong>：支持安卓6.0之后的版本<br /> &nbsp;&nbsp;&nbsp; desired_caps['automationName'] = 'uiautomator2'<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # <strong><span style="color:#f33b45;">udid</span></strong>：如果连接真机测试，必须指定设备的id（在adb devides里或设置里查看）<br /> &nbsp;&nbsp;&nbsp; desired_caps['udid'] = '7N3HPX159H051514'<br /> &nbsp;&nbsp;&nbsp; # 真机测试需要做的事情:<br /> &nbsp;&nbsp;&nbsp; # ①打开开发者模式和USB调试模式<br /> &nbsp;&nbsp;&nbsp; # ②在电脑上安装手机驱动<br /> &nbsp;&nbsp;&nbsp; # ③用USB连接手机和电脑<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver.find_element_by_id('android:id/text1').click()<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; # 启动一个窗口。<br /> &nbsp;&nbsp;&nbsp; # 可以打开本APP的任意窗口，还可以打开其他APP的任意窗口，前提是APP已安装。<br /> &nbsp;&nbsp;&nbsp; driver.start_activity('io.selendroid.testapp','.HomeScreenActivity')<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; driver.back()<br /> &nbsp;<br /> &nbsp;&nbsp;&nbsp; sleep(2)<br /> &nbsp;&nbsp;&nbsp; driver.quit()</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37117.htm">丹阳市宠物店（丹阳宠物寄养）</a></p>
+                                        <p>下一个：<a href="/news/article-38102.htm">动物防疫站在哪里办公的（动物防疫站是什么编制）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="「11月30日」最高速度20.9M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「11月30日」最高速度20.9M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-26198.htm" title="长沙市宠物领养中心地址（长沙宠物领养救助站）">长沙市宠物领养中心地址（长沙宠物领养救助站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="「1月8日」最高速度18.1M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「1月8日」最高速度18.1M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-29944.htm" title="宠物领养图片真实大全（宠物领养百度百科）">宠物领养图片真实大全（宠物领养百度百科）</a></li>
+                        <li class="py-2"><a href="/news/article-38102.htm" title="动物防疫站在哪里办公的（动物防疫站是什么编制）">动物防疫站在哪里办公的（动物防疫站是什么编制）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-node-share.htm" title="「10月27日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「10月27日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="「10月17日」最高速度18.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「10月17日」最高速度18.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share-links.htm" title="「11月27日」最高速度20.8M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「11月27日」最高速度20.8M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24340.htm" title="宠物用品批发进货渠道网站推荐（宠物用品批发商）">宠物用品批发进货渠道网站推荐（宠物用品批发商）</a></li>
+                        <li class="py-2"><a href="/news/article-28542.htm" title="C++ String类的简单实现">C++ String类的简单实现</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
