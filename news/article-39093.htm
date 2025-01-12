@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-39093.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>C++详解多线程中的线程同步与互斥量_C 语言</title>
+        <meta name="description" content="目录  线程同步 互斥量    线程同步  /*      使用多线程实现买票的案例。      有3个窗口，一共是100张票。  */  #include &lt;stdio.h&gt;  #inc" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>C++详解多线程中的线程同步与互斥量_C 语言</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">线程同步</a></li> <li><a href="#_label1" rel="nofollow">互斥量</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>线程同步</h2> <div class="ay1code"> <pre class="brush:cpp;">/*      使用多线程实现买票的案例。      有3个窗口，一共是100张票。  */  #include &lt;stdio.h&gt;  #include &lt;pthread.h&gt;  #include &lt;unistd.h&gt;  // 全局变量，所有的线程都共享这一份资源。  int tickets = 100;  void * sellticket(void * arg) {      // 卖票      while(tickets &gt; 0) {          usleep(6000);	//微秒          printf("%ld 正在卖第 %d 张门票\n", pthread_self(), tickets);          tickets--;      }      return NULL;  }  int main() {      // 创建3个子线程      pthread_t tid1, tid2, tid3;      pthread_create(&amp;tid1, NULL, sellticket, NULL);      pthread_create(&amp;tid2, NULL, sellticket, NULL);      pthread_create(&amp;tid3, NULL, sellticket, NULL);      // 回收子线程的资源,默认阻塞状态      pthread_join(tid1, NULL);      pthread_join(tid2, NULL);      pthread_join(tid3, NULL);      // 设置线程分离。      // pthread_detach(tid1);      // pthread_detach(tid2);      // pthread_detach(tid3);      pthread_exit(NULL); // 退出主线程      return 0;  }</pre> </div> <p>运行结果：</p> <p>产生的问题：</p> <ul> <li>每一张票都卖了好几次；</li> <li>卖了第0张票和-1张票，都是不对的；</li> </ul> <p>三个线程抢cpu资源。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/01ecab81fc3c94f1c321bf0486911804.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/ebd42b92bfc8cb320676ec9a45f3157a.jpg"></p> <p>原因： 休眠的时间，3个进程都进去执行了程序；多个进程对共享资源同时处理，就会产生线程同步问题。</p> <p>线程的主要优势： 通过全局变量来共享信息。不过，这种便捷的共享是有代价的:必须确保多个线程不会同时修改同一变量，或者某一线程不会读取正在由其他线程修改的变量。</p> <p>临界区：指访问某一共享资源的代码片段，并且这段代码的执行应为原子操作，也就是同时访问同一共享资源的其他线程不应终端该片段的执行。</p> <p>线程同步： 即当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作，而其他线程则处于等待状态。</p> <p>线程同步会降低线程并发的效率，这是必须的。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>互斥量</h2> <p>为避免线程更新共享变量时出现问题，可以使用互斥量(mutex）来确保同时仅有一个线程可以访问某项共享资源。可以使用互斥量来保证对任意共享资源的原子访问。</p> <p>互斥量有两种状态：已锁定(locked)和未锁定(unlocked)。</p> <p>任何时候，至多只有一个线程可以锁定该互斥量。试图对已经锁定的某一互斥量再次加锁，将可能阻塞线程或者报错失败，具体取决于加锁时使用的方法。</p> <p>一旦线程锁定互斥量，随即成为该互斥量的所有者，只有所有者才能给互斥量解锁。</p> <p>一般情况下，对每一共享资源（可能由多个相关变量组成）会使用不同的互斥量，每一线程在访问同一资源时将采用如下协议:</p> <ul> <li>针对共享资源锁定互斥量</li> <li>访问共享资源</li> <li>对互斥量解锁</li> </ul> <p>加锁是在临界区对共享数据操作；</p> <p>如果多个线程试图执行这一块代码（一个临界区)，事实上只有一个线程能够持有该互斥量(其他线程将遭到阻塞)，即同时只有一个线程能够进入这段代码区域，如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/01e48e590579f4ea1bc9a186306c7e77.jpg"></p> <div class="ay1code"> <pre class="brush:cpp;">/*      互斥量的类型 pthread_mutex_t      int pthread_mutex_init(pthread_mutex_t *restrict mutex, const pthread_mutexattr_t *restrict attr);          - 初始化互斥量          - 参数 ：              - mutex ： 需要初始化的互斥量变量              - attr ： 互斥量相关的属性，NULL          - restrict : C语言的修饰符，被修饰的指针，不能由另外的一个指针进行操作。              pthread_mutex_t *restrict mutex = xxx;              pthread_mutex_t * mutex1 = mutex;	--不能这样操作，有restrict关键词      int pthread_mutex_destroy(pthread_mutex_t *mutex);          - 释放互斥量的资源      int pthread_mutex_lock(pthread_mutex_t *mutex);          - 加锁，阻塞的，如果有一个线程加锁了，那么其他的线程只能阻塞等待  		- 成功返回 0      int pthread_mutex_trylock(pthread_mutex_t *mutex);          - 尝试加锁，如果加锁失败，不会阻塞，会直接返回。      int pthread_mutex_unlock(pthread_mutex_t *mutex);          - 解锁  */  #include &lt;stdio.h&gt;  #include &lt;pthread.h&gt;  #include &lt;unistd.h&gt;  // 全局变量，所有的线程都共享这一份资源。  int tickets = 1000;  // 创建一个互斥量	--在全局区创建  pthread_mutex_t mutex;  void * sellticket(void * arg) {      // 卖票      while(1) {          // 加锁          pthread_mutex_lock(&amp;mutex);          if(tickets &gt; 0) {              usleep(6000);              printf("%ld 正在卖第 %d 张门票\n", pthread_self(), tickets);              tickets--;          }else {              // 解锁              pthread_mutex_unlock(&amp;mutex);              break;          }          // 解锁          pthread_mutex_unlock(&amp;mutex);      }      return NULL;  }  int main() {      // 初始化互斥量      pthread_mutex_init(&amp;mutex, NULL);      // 创建3个子线程      pthread_t tid1, tid2, tid3;      pthread_create(&amp;tid1, NULL, sellticket, NULL);      pthread_create(&amp;tid2, NULL, sellticket, NULL);      pthread_create(&amp;tid3, NULL, sellticket, NULL);      // 回收子线程的资源,阻塞      pthread_join(tid1, NULL);      pthread_join(tid2, NULL);      pthread_join(tid3, NULL);      pthread_exit(NULL); // 退出主线程      // 释放互斥量资源      pthread_mutex_destroy(&amp;mutex);      return 0;  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38594.htm">芭比堂宠物医院是全国连锁的吗知乎（芭比堂宠物医院是全国连锁的吗知乎文章）</a></p>
+                                        <p>下一个：<a href="/news/article-39094.htm">北京去哪领养狗（北京在哪里领养狗狗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe.htm" title="「11月20日」最高速度22M/S，2024年V2ray/Shadowrocket/SSR/Clash免费机场订阅节点链接，翻墙机场推荐">「11月20日」最高速度22M/S，2024年V2ray/Shadowrocket/SSR/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe-links.htm" title="「11月2日」最高速度22.1M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月2日」最高速度22.1M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe-links.htm" title="「12月21日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐">「12月21日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19767.htm" title="JS encodeURI和encodeURIComponent()方法的使用">JS encodeURI和encodeURIComponent()方法的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="「11月17日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐">「11月17日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-high-speed-nodes.htm" title="「12月4日」最高速度18.5M/S，2024年Shadowrocket/V2ray/Clash/SSR免费机场订阅节点链接，翻墙机场推荐">「12月4日」最高速度18.5M/S，2024年Shadowrocket/V2ray/Clash/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-node-subscribe-links.htm" title="「10月23日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「10月23日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-subscribe-node.htm" title="「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月22日」最高速度21.9M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="「1月8日」最高速度18.1M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「1月8日」最高速度18.1M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-32816.htm" title="美联众合动物医院电话 美联众合动物医院电话美容师">美联众合动物医院电话 美联众合动物医院电话美容师</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">35</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
