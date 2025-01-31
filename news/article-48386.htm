@@ -1,0 +1,231 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-48386.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>深度学习——卷积神经网络</title>
+        <meta name="description" content="卷积神经网络CNN由纽约大学的Yann Lecun于1998年提出，其本质是一个多层感知机，成功的原因在于其所采用的局部连接和权值共享的方式：  一方面减少了权值的数量使得网络易于优化 另一方面降低了" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-48386.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="深度学习——卷积神经网络" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/59a4b6beb392d98b6c3fb14dc7e16a7d.webp" />
+        <meta property="og:release_date" content="2025-01-30T06:45:14" />
+    <meta property="og:updated_time" content="2025-01-30T06:45:14" />
+        <meta property="og:description" content="卷积神经网络CNN由纽约大学的Yann Lecun于1998年提出，其本质是一个多层感知机，成功的原因在于其所采用的局部连接和权值共享的方式：  一方面减少了权值的数量使得网络易于优化 另一方面降低了" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="深度学习——卷积神经网络">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>深度学习——卷积神经网络</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>卷积神经网络CNN由纽约大学的Yann Lecun于1998年提出，其本质是一个多层感知机，成功的原因在于其所采用的<strong>局部连接</strong>和<strong>权值共享</strong>的方式：</p> <ul> <li>一方面减少了权值的数量使得网络易于优化</li> <li>另一方面降低了模型的复杂度，也就是减小了过拟合的风险</li> </ul> <p>该优点在网络的输入是图像时表现的更为明显，使得图像可以直接作为网络的输入，避免了传统识别算法中复杂的特征提取和数据重建的过程，在二维图像的处理过程中有很大的优势。</p> <ul> <li>如网络能够自行抽取图像的特征包括颜色、纹理、形状及图像的拓扑结构。在处理二维图像上，特别是识别位移、缩放以及其他形式扭曲不变性的应用上具有良好的鲁棒性和运算效率等。</li> <li>CNNs可以自动从（通常是大规模）数据中学习特征，并把结果向同类型未知数据泛化。</li> </ul> <p>目前所说的卷积神经网络一般指的是深层结构的卷积神经网络，层数从几层到几十上百层不定。浅层卷积神经网络因为准确度和表现力等原因很少使用。</p> <p>通过机器进行模式识别 ，通常可以被认为有四个阶段:</p> <ul> <li>数据获取: 比如数字化图像</li> <li>预处理: 比如图像去噪和图像几何修正</li> <li>特征提取：寻找一些计算机识别的属性，这些属性用以描述当前图像与其它图像的不同之处</li> <li>数据分类：把输入图像划分给某一特定类别</li> </ul> <p>CNN是目前图像领域特征提取最好的方式，也因此大幅度提升了数据分类精度</p> <p><strong>网络结构：</strong></p> <ul> <li>基础的CNN由 <strong>卷积</strong>(convolution), <strong>激活</strong>(activation), and <strong>池化</strong>(pooling)三种结构组成。</li> <li>卷积层的输出结果是每幅图像的特定特征空间。</li> <li>处理图像分类任务时，我们会把卷积层输出的特征空间输入到全连接层或<strong>全连接神经网络</strong>(fully connected neural network, FCN)中。使用全连接层来完成从输入图像到标签集的映射，即分类功能。</li> <li>整个过程最重要的是通过训练数据迭代调整网络权重，这里使用的是<strong>反向传播算法</strong>，即BP算法。</li> <li> <strong>阶段(stage)</strong> </p> <ul> <li>根据功能不同，我们称这些前后连接的结构处于不同阶段(stage)。</li> <li>在主流CNNs中，不同stage里CNN会有不同的单元和结构，比如卷积核 (kernel)大小可能不同，激活函数(activition function) 可能不同，pooling操作可能不存在。</li> <li>一个stage中的一个CNN，通常会由三种映射体积(Maps Volume)组成： <ul> <li>输入映射空间(input maps volume）</li> <li>特征映射空间(feature maps volume）</li> <li>池化映射空间(pooled maps volume)</li> </ul> </li> <li>为什么称为映射体积呢，因为我们的输入一般是RGB图像，那么输入的maps volume就是由红、黄、蓝三通道构成的。所以说我们输入的图像实际上就是由高度，宽度和深度三种信息构成的，可以被形象的理解为是一种体积。高度和宽度就是图片的分辨率，深度就是红黄蓝三通道，在RGB图像中深度就是3，在灰度图像中，深度就是1。</li> </ul> </li> </ul> <p><strong>卷积：</strong></p> <ul> <li> <p>CNN中，最基本的操作就是卷积convolution，准确的说CNN所用的卷积是一种2D卷积。意思就是卷积核kernel只能在x，y轴上滑动，不能在深度（跨通道）上位移。</p> </li> <li> <p>如下图，对于RGB图像，采用了三个独立的2-D kernel，如黄色部分所示，所以这个完整的kernel的维度是：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/3e55d23c29a06b41a800496aa2e3df07.jpg" alt="深度学习——卷积神经网络"><br /> 其中X和Y是kernel的宽高。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/d29f1667ec9df7a635074a739096362d.jpg" alt="深度学习——卷积神经网络"><br /> 在基础CNN的不同stage中，kernel的深度都应当一致，等于输入图像的通道数。</p> </li> <li> <p>卷积需要输入两个参数，其实质是二维空间滤波，滤波的性质与kernel的选择有关，CNN的卷积是在一个2D kernel (可以是多个2D的kernel，但是在进行卷积操作的时候是一个一个进行的)和输入的 2D input map(也就是二维图像) 之间，RGB中的各图像通道中分别完成。</p> <ul> <li>假设某一卷积输出点为(x，y)</li> <li>卷积核的大小为p*q</li> <li>kernel权重为 ω</li> <li>图像亮度为v</li> <li>则卷积过程就是kernel 所有权重与其在输入图像上对应元素亮度之和，可以表示为：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/7a56f5110d438aa0066d7ac931c2e053.jpg" alt="深度学习——卷积神经网络"> </li> </ul> </li> <li> <p>例如：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/6d587cf3d223b3ee54591f0fad3dd45b.jpg" alt="深度学习——卷积神经网络"><br /> 其计算方式如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/b3c9c37bad5f6473802ece286f927956.jpg" alt="深度学习——卷积神经网络"><br /> 随着卷积核kernel在x，y轴上平扫，就可以得到输出空间，假设输入图像的大小是<strong>512*512</strong>，卷积核 是<strong>3*3</strong>，在不考虑零填充（zero padding）的情况下，其输出是<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/1abd9e0e8bf6ad117b52db16eed9d40c.jpg" alt="深度学习——卷积神经网络"></p> <ul> <li>注意：卷积层的kernel可能不止一个，扫描步长，方向也有不同：</li> <li>可以采用多个卷积核设为n ，同时扫描，得到的feature map会增加n个维度，通常认为是多抓取n个特征。</li> <li>可以采用不同的扫描步长（stride），如果上面的例子中采用的步长为n，那么输出图像大小就是：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/aba7fd6495793c71a91bf846721945b6.jpg" alt="深度学习——卷积神经网络"> </li> <li>padding，上面的例子中卷积过后的图像是被缩减的，因为边缘部分被压缩到中间，其卷积后的图像大小将会被缩减。这其实这个问题可以在图像周围填充0来保证卷积后的feature map与原始图像大小不变。</li> <li>深度升降，例如增加一个1*1的kernel来增加深度，其实就相当于复制一层当前通道作为feature map</li> <li>跨层传递feature map，不再局限于输入即输出，例如ResNet的跨层传递特征。</li> </ul> </li> </ul> <p><strong>激活：</strong></p> <ul> <li> <p>卷积之后，通常会加入偏置（bias），并引入非线性激活函数（activation function）进行激活。</p> </li> <li> <p>设偏置为b，激活函数为h()，则激活函数为：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/fc12250c083c736fe774cf75e19a5427.jpg" alt="深度学习——卷积神经网络"><br /> 这个Z<sub>x,y</sub>就是卷积后输出的（x，y）点的激活值。</p> </li> <li> <p>bias和元素位置无关，也就是说和x，y值无关，只与层有关。</p> </li> <li> <p>主流的激活函数有：</p> <ul> <li>线性整流单元(ReLU):<img decoding="async" src="http://img.555519.xyz/uploads/20230204/3a94c5099c962ecd69dbc2516063d909.jpg" alt="深度学习——卷积神经网络"> </li> <li>Sigmoid函数：<img decoding="async" src="http://img.555519.xyz/uploads/20230204/f0bfbcfc8cbbf97f1b2315e25f32f5ac.jpg" alt="深度学习——卷积神经网络"> </li> <li>tanh函数:<img decoding="async" src="http://img.555519.xyz/uploads/20230204/ffed566237ce5afc19aa92e2b529b6ae.jpg" alt="深度学习——卷积神经网络"> </li> <li>根据实际参数大小等性质调整。</li> </ul> </li> <li> <p>feature map是可以可视化的。</p> </li> <li> <p>例如，采用277*277的RGB图像，如果采用96个<strong>11x11x3</strong>的kernel同时扫描（这就是上面说的采用多个卷积核，使feature map增加n个维度），就可以得到输出的feature map是96个<strong>267x267</strong>的二维feature map，原本的3通道在积分的时候会被作为一个元素加起来。feature map在可视化之后，有些表示边缘特征，有些是模糊化的输入，有些强调的是灰度变化，有的强调眼睛，有的强调某一通道的表现。</p> </li> </ul> <p><strong>池化：</strong></p> <ul> <li>池化(pooling），是一种降采样操作(subsampling)，主要目标是降低feature maps的特征空间，或者可以认为是降低feature maps的分辨率。因为feature map参数太多，而图像细节不利于高层特征的抽取。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/870bf58d9c4bc46fc6d83b6766def065.jpg" alt="深度学习——卷积神经网络"> </li> <li>目前，主要的池化操作有： <ul> <li>最大值池化 Max pooling：如上图所示，2 * 2的max pooling就是取4个像素点中最大值保留</li> <li>平均值池化 Average pooling: 如上图所示, 2 * 2的average pooling就是取4个像素点中平均值值保留</li> <li>L2池化 L2 pooling: 即取均方值（先计算4个数的平方的和,然后开平方）</li> </ul> </li> <li>池化操作的主要目的就是降低feature maps的分辨率，降低参数。这种暴力降低在计算力足够的情况下是不是必须的并不确定。目前，一些大的CNNs网络只是偶尔使用pooling。</li> </ul> <p>上面就是CNN stage的基本结构，这个结构是可变的，目前的大部分网络都是根据基本结构堆叠调整参数，或者跳层连接而成的。CNN输出的feature maps不仅可以输入到全连接网络中做分类，也可以接入另一个“镜像”的CNN用来做像素级的标注，即图像分割。</p> <p><strong>全连接网络：</strong></p> <ul> <li>出现在CNN中的全连接网络（fully connected network）主要目的就是为了分类。</li> <li>全连接网络不同于CNN的滑动卷积，全连接网络的每一层都与上一层完全连接。意思就是上一层的一个神经元与下一层的每一个神经元都有连接。</li> <li>对于全连接网络，除了输入层和输出层的其他层，都被认为是隐含层。</li> <li>对于第L层的第i个神经元，它的输出计算方式是：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/37b9462d2cc1b25ef9a4c2e6b71a0440.jpg" alt="深度学习——卷积神经网络"> </li> <li>使用激活函数后，其输出是：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/bfeb4f37135fdf17d03f90b650689f00.jpg" alt="深度学习——卷积神经网络"> </li> <li>计算这一层的所有神经元的输出作为下一层的输入。</li> </ul> <p><strong>目标函数和训练方法：</strong></p> <ul> <li>训练误差一般都是使用损失函数来衡量的。目前比较流行的损失函数有均方误差（MSE Mean Square Error）和K-L散度（K-L divergence），对于输出层的损失值计算公式如下：</li> <li>MSE（前边乘以1/2就是为了求导好算，当然对于损失函数来说，并没有太大影响。）：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/82662cb2d23fe833c1ef932cbd6d7040.jpg" alt="深度学习——卷积神经网络"> </li> <li>K-L divergence（前边的系数也是为了求导好算。）：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/2c978d428d1e533b05c2e1a356b9de73.jpg" alt="深度学习——卷积神经网络"> </li> <li> <img decoding="async" src="http://img.555519.xyz/uploads/20230204/2f450a82de013830a2857bdb6356d038.jpg" alt="深度学习——卷积神经网络">是真实值，<img decoding="async" src="http://img.555519.xyz/uploads/20230204/6e1d608216881355d1e892a25eee5570.jpg" alt="深度学习——卷积神经网络">是L层的第j个神经元的输出。</li> <li>通常K-L divergence的权重更新会比MSE更快。</li> <li> <strong>Backpropagation Pass反向传播：</strong> </p> <ul> <li>预测值和真实值（label）之间必然存在误差，反向传播就是要把这个误差信息回传给每一层，让这些层修改他们的去权值，使预测更准确。</li> <li>BP算法使用的是梯度下降更新权值的，其更新公式如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/2030864b28c8a433ff4eb5e92bcba519.jpg" alt="深度学习——卷积神经网络"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230204/54e5e527e720a62676e0aa75ab15cea3.jpg" alt="深度学习——卷积神经网络"> </li> <li>其中 η是梯度下降的学习率(learning rate)，如果learning rate取值过大，可能会收敛于震荡，如果learning rate取值过小，可能收敛速度太慢。</li> <li>可以看到梯度下降法是利用误差对旧参数的梯度进行新参数的更新，所以权值更新的目标就是让每一层得到这样的梯度，然后更新。</li> <li>很明显参数的更新依靠W<sub>old</sub>和b<sub>old</sub>以及误差E，然而E又是由W<sub>old</sub>和b<sub>old</sub>计算得出，因此这就是一个多参数优化问题，其解题思路就是先固定一方，更新另一方。</li> <li>Backpropagation算法，大概可以分为<strong>两步</strong>： <ul> <li>首先前向传播，通过输入图像和初始化权重，获得输出。</li> <li>得到输出后，通过损失函数计算出误差E，通过误差对权重的偏导值对权重进行更新，通过误差对偏置的偏导值对偏置进行更新。 <ul> <li>这里有可能难以理解，其实也并不难理解，<strong>我们假设内层第L层的某一连接的权重值为<mark>w<sub>Li</sub></mark>，由于该连接的输出为<mark>w<sub>Li</sub>*x + b<sub>Li</sub></mark>，其值与其他传入下一层的同一个神经元的所有值相加后，经过激活函数<mark>h（）</mark> 作为下一层的某一神经元的输入，那么下一个神经元的x就成了<mark>h（∑w<sub>Li</sub>*x + b<sub>Li</sub>）</mark>。然后这个整体作为输入<mark>x</mark>再次乘以该神经元的某个连接的权重和偏置传递给下一层直到传到最后一层。</strong> 由于相加的内容只有其中一项是包含w<sub>Li</sub>的，那么剩余项求导为0（相当于常数求导为0），这样一来，我们用误差E对某一权重求偏导，使用的是复合函数求导，求导到该权重层即可。这时得到的偏导数值即是所需梯度，用原来的权重值减去学习率乘以这个梯度得到的新值就是参数更新所需的新值。</li> <li>由于激活函数以及多层的嵌套运算，对于偏置的更新也需要和权重一样进行求导。不同的是在求到最接近的那一层，对w求导是x，而对b求导是1。</li> </ul> </li> </ul> </li> <li>权重和偏置更新后，就认为完成了一次训练。称从来自训练集的输入向量到权重和偏置更新为一个纪元（epoch）。</li> <li>当MSE误差稳定不变，或者到达某个迭代次数后，BP算法停止，模型训练结束。</li> </ul> </li> </ul> <p><strong>总结：</strong></p> <ul> <li>所以对于神经网络模型，就是一个模拟人脑工作所得出来的，卷积神经网络更是如此。 <ul> <li>卷积操作是不是很像多个神经元接收到的外部信息通过轴突传给某些个神经元的树突。</li> <li>激活函数是不是像电压刺激达到一定程度产生的神经递质。</li> <li>池化操作又或许是某些神经元传递到同一个神经细胞进行的信息简化。</li> <li>每个神经细胞都带有自身权重，经过不断的犯错，调整，不断的调整自身权重，加强某个连接，减弱某个连接，从而达到更高的识别准确率。</li> </ul> </li> </ul> <p><strong>主要CNN算法：</strong></p> <table> <thead> <tr> <th>名称</th> <th>特点</th> </tr> </thead> <tbody> <tr> <td>LeNet5</td> <td>没啥特点，不过是第一个CNN应该要知道</td> </tr> <tr> <td>AlexNet</td> <td>引入了ReLU和dropout，引入数据增强、池化相互之间有覆盖，三个卷积一个最大池化+三个全连接层</td> </tr> <tr> <td>VGGNet</td> <td>采用11和33的卷积核以及2*2的最大池化使得层数变得更深。常用VGGNet-16和VGGNet19</td> </tr> <tr> <td>Google Inception Net</td> <td>这个在控制了计算量和参数量的同时，获得了比较好的分类性能，和上面相比有几个大的改进：1、去除了最后的全连接层，而是用一个全局的平均池化来取代它； 2、引入Inception Module，这是一个4个分支结合的结构。所有的分支都用到了11的卷积，这是因为11性价比很高，可以用很少的参数达到非线性和特征变换。3、Inception V2第二版将所有的55变成2个33，而且提出来著名的Batch Normalization；4、Inception V3第三版就更变态了，把较大的二维卷积拆成了两个较小的一维卷积，加速运算、减少过拟合，同时还更改了Inception Module的结构。</td> </tr> <tr> <td>微软ResNet残差神经网络(Residual Neural Network)</td> <td>1、引入高速公路结构，可以让神经网络变得非常深2、ResNet第二个版本将ReLU激活函数变成y=x的线性函数</td> </tr> </tbody> </table> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-47993.htm">一片一片枫叶的周长大概是多长（一片枫叶的面积大约是多少平方厘米）</a></p>
+                                        <p>下一个：<a href="/news/article-48388.htm">宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21145.htm" title="宠物粮厂名称好寓意吗怎么取（宠物粮厂家）">宠物粮厂名称好寓意吗怎么取（宠物粮厂家）</a></li>
+                        <li class="py-2"><a href="/news/article-38102.htm" title="动物防疫站在哪里办公的（动物防疫站是什么编制）">动物防疫站在哪里办公的（动物防疫站是什么编制）</a></li>
+                        <li class="py-2"><a href="/news/article-26681.htm" title="Python os.path常用操作">Python os.path常用操作</a></li>
+                        <li class="py-2"><a href="/news/article-40089.htm" title="宠物领养协议书电子版模板下载打印（宠物领养协议书怎么写）">宠物领养协议书电子版模板下载打印（宠物领养协议书怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-23899.htm" title="宠物粮食产地在哪里（宠物粮生产基地）">宠物粮食产地在哪里（宠物粮生产基地）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-node-share-links.htm" title="「10月15日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「10月15日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-node-subscribe.htm" title="「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19310.htm" title="宠物领养协议模板下载电子版（宠物领养协议书电子版）">宠物领养协议模板下载电子版（宠物领养协议书电子版）</a></li>
+                        <li class="py-2"><a href="/news/article-19769.htm" title="中国动物疫苗十强名单最新图片（全国动物用疫苗销量排行）">中国动物疫苗十强名单最新图片（全国动物用疫苗销量排行）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="「11月15日」最高速度23M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月15日」最高速度23M/S，2024年Clash/SSR/Shadowrocket/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

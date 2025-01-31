@@ -1,0 +1,231 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-49013.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SpringCloud Feign整合Sentinel</title>
+        <meta name="description" content="目录      一.引入依赖 二.在配置文件中开启Feign对Sentinel的支持 三.创建容错类 四.为被容器的接口指定容错类 五.修改controller 六.获取具体错误信息       一." />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-49013.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="SpringCloud Feign整合Sentinel" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/d4f1ccf8253f288395f76ea786e1eebd.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:19:10" />
+    <meta property="og:updated_time" content="2025-01-31T07:19:10" />
+        <meta property="og:description" content="目录      一.引入依赖 二.在配置文件中开启Feign对Sentinel的支持 三.创建容错类 四.为被容器的接口指定容错类 五.修改controller 六.获取具体错误信息       一." />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringCloud Feign整合Sentinel">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                                                <a class="navbar-brand" href="/"><span>Linux Clash</span></a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>SpringCloud Feign整合Sentinel</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <div class="toc"> <h3>目录</h3> <ul> <li> <ul> <li> <ul> <li><a href="#_3" rel="nofollow">一.引入依赖</a></li> <li><a href="#FeignSentinel_13" rel="nofollow">二.在配置文件中开启Feign对Sentinel的支持</a></li> <li><a href="#_23" rel="nofollow">三.创建容错类</a></li> <li><a href="#_39" rel="nofollow">四.为被容器的接口指定容错类</a></li> <li><a href="#controller_52" rel="nofollow">五.修改controller</a></li> <li><a href="#_70" rel="nofollow">六.获取具体错误信息</a></li> </ul> </li> </ul> </li> </ul> </div> <h3><a id="_3" rel="nofollow"></a>一.引入依赖</h3> <pre><code class="prism language-xml"><span class="token comment">&lt;!--sentinel客户端--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <h3><a id="FeignSentinel_13" rel="nofollow"></a>二.在配置文件中开启Feign对Sentinel的支持</h3> <pre><code class="prism language-yml"><span class="token key atrule">feign</span><span class="token punctuation">:</span><span class="token key atrule">sentinel</span><span class="token punctuation">:</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span></code></pre> <h3><a id="_23" rel="nofollow"></a>三.创建容错类</h3> <pre><code class="prism language-java"><span class="token comment">//容错类要求必须实现被容错的接口,并为每个方法实现容错方案</span><span class="token annotation punctuation">@Component</span><span class="token annotation punctuation">@Slf4j</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ProductServiceFallBack</span><span class="token keyword">implements</span><span class="token class-name">ProductService</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">Product</span><span class="token function">findByPid</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> pid<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">Product</span> product<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Product</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		product<span class="token punctuation">.</span><span class="token function">setPid</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> product<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h3><a id="_39" rel="nofollow"></a>四.为被容器的接口指定容错类</h3> <pre><code class="prism language-java"><span class="token comment">//value用于指定调用nacos下哪个微服务</span><span class="token comment">//fallback用于指定容错类</span><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"service-product"</span><span class="token punctuation">,</span> fallback<span class="token operator">=</span><span class="token class-name">ProductServiceFallBack</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">interface</span><span class="token class-name">ProductService</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/product/{pid}"</span><span class="token punctuation">)</span><span class="token comment">//指定请求的URI部分</span><span class="token class-name">Product</span><span class="token function">findByPid</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token class-name">Integer</span> pid<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h3><a id="controller_52" rel="nofollow"></a>五.修改controller</h3> <pre><code class="prism language-java">  ·····························<span class="token annotation punctuation">@Autowired</span><span class="token keyword">private</span><span class="token class-name">ProductService</span> productService<span class="token punctuation">;</span><span class="token comment">//调用商品微服务,查询商品信息</span><span class="token class-name">Product</span> product<span class="token operator">=</span> productService<span class="token punctuation">.</span><span class="token function">findByPid</span><span class="token punctuation">(</span>pid<span class="token punctuation">)</span><span class="token punctuation">;</span>   ····························</code></pre> <h3><a id="_70" rel="nofollow"></a>六.获取具体错误信息</h3> <pre><code class="prism language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span> value<span class="token operator">=</span><span class="token string">"service-product"</span><span class="token punctuation">,</span><span class="token comment">//fallback = ProductServiceFallBack.class,</span> fallbackFactory<span class="token operator">=</span><span class="token class-name">ProductServiceFallBackFactory</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">interface</span><span class="token class-name">ProductService</span><span class="token punctuation">{<!-- --></span><span class="token comment">//@FeignClient的value + @RequestMapping的value值 其实就是完成的请求地址</span><span class="token comment">//"http://service-product/product/" + pid</span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/product/{pid}"</span><span class="token punctuation">)</span><span class="token comment">//指定请求的URI部分</span><span class="token class-name">Product</span><span class="token function">findByPid</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token class-name">Integer</span> pid<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Component</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ProductServiceFallBackFactory</span><span class="token keyword">implements</span><span class="token class-name">FallbackFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ProductService</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">ProductService</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">Throwable</span> throwable<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token keyword">new</span><span class="token class-name">ProductService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token class-name">Product</span><span class="token function">findByPid</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> pid<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				throwable<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">Product</span> product<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">Product</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 				product<span class="token punctuation">.</span><span class="token function">setPid</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> product<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><strong>fallback和fallbackFactory只能使用其中一种方式</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48388.htm">宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）</a></p>
+                                        <p>下一个：<a href="/news/article-49014.htm">宠物粮销量排名榜前十名（电动车销量排名榜前十名）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-node-subscribe.htm" title="「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-41563.htm" title="宠物粮生产厂家排名前十有哪些（宠物粮食厂家）">宠物粮生产厂家排名前十有哪些（宠物粮食厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-high-speed-nodes.htm" title="「1月12日」最高速度20.5M/S，2025年SSR/Clash/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「1月12日」最高速度20.5M/S，2025年SSR/Clash/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-38594.htm" title="芭比堂宠物医院是全国连锁的吗知乎（芭比堂宠物医院是全国连锁的吗知乎文章）">芭比堂宠物医院是全国连锁的吗知乎（芭比堂宠物医院是全国连锁的吗知乎文章）</a></li>
+                        <li class="py-2"><a href="/news/article-41562.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/news/article-31287.htm" title="开宠物诊所需要哪些手续（想开宠物诊所需要什么）">开宠物诊所需要哪些手续（想开宠物诊所需要什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-subscribe-node.htm" title="「10月11日」最高速度18.8M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接">「10月11日」最高速度18.8M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-24340.htm" title="宠物用品批发进货渠道网站推荐（宠物用品批发商）">宠物用品批发进货渠道网站推荐（宠物用品批发商）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-node-share-links.htm" title="「11月13日」最高速度19.8M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月13日」最高速度19.8M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
