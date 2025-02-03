@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://linuxclash.github.io/news/article-39093.htm" />
@@ -9,6 +9,33 @@
     <title>C++详解多线程中的线程同步与互斥量_C 语言</title>
         <meta name="description" content="目录  线程同步 互斥量    线程同步  /*      使用多线程实现买票的案例。      有3个窗口，一共是100张票。  */  #include &lt;stdio.h&gt;  #inc" />
         <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-39093.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="C++详解多线程中的线程同步与互斥量_C 语言" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/f5d1f0332351846733682375d77f1ab6.webp" />
+        <meta property="og:release_date" content="2025-01-11T10:04:14" />
+    <meta property="og:updated_time" content="2025-01-11T10:04:14" />
+        <meta property="og:description" content="目录  线程同步 互斥量    线程同步  /*      使用多线程实现买票的案例。      有3个窗口，一共是100张票。  */  #include &lt;stdio.h&gt;  #inc" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++详解多线程中的线程同步与互斥量_C 语言">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-34720.htm" title="go语言panic函数详解">go语言panic函数详解</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月29日」最高速度23M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-22517.htm" title="动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）">动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐">「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe-links.htm" title="「12月17日」最高速度21.8M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「12月17日」最高速度21.8M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-25293.htm" title="办理动物疫苗经营手续需要哪些材料（动物怎么办理疫苗证）">办理动物疫苗经营手续需要哪些材料（动物怎么办理疫苗证）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share-links.htm" title="「12月8日」最高速度22.9M/S，2024年Clash/Shadowrocket/V2ray/SSR免费机场订阅节点链接，翻墙机场推荐">「12月8日」最高速度22.9M/S，2024年Clash/Shadowrocket/V2ray/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-31287.htm" title="开宠物诊所需要哪些手续（想开宠物诊所需要什么）">开宠物诊所需要哪些手续（想开宠物诊所需要什么）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="「12月9日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「12月9日」最高速度21.2M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-30911.htm" title="成都宠物回收店电话（成都宠物狗回收电话）">成都宠物回收店电话（成都宠物狗回收电话）</a></li>
+                        <li class="py-2"><a href="/news/article-36630.htm" title="宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司">宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司</a></li>
+                        <li class="py-2"><a href="/news/article-24342.htm" title="动物接种疫苗多少钱一针啊图片大全视频（动物疫苗接种时间表）">动物接种疫苗多少钱一针啊图片大全视频（动物疫苗接种时间表）</a></li>
+                        <li class="py-2"><a href="/news/article-44550.htm" title="动物疫苗的正确使用方法有哪些图片 动物疫苗的正确使用方法有哪些图片大全">动物疫苗的正确使用方法有哪些图片 动物疫苗的正确使用方法有哪些图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe.htm" title="「1月5日」最高速度20.7M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「1月5日」最高速度20.7M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43553.htm" title="动物医院投资成本（动物医院投资成本高吗）">动物医院投资成本（动物医院投资成本高吗）</a></li>
+                        <li class="py-2"><a href="/news/article-20227.htm" title="北京有鹦鹉的公园在哪里（北京大兴鹦鹉公园）">北京有鹦鹉的公园在哪里（北京大兴鹦鹉公园）</a></li>
+                        <li class="py-2"><a href="/news/article-34245.htm" title="猫咪领养协议书下载（宠物猫领养协议书）">猫咪领养协议书下载（宠物猫领养协议书）</a></li>
+                        <li class="py-2"><a href="/news/article-23899.htm" title="宠物粮食产地在哪里（宠物粮生产基地）">宠物粮食产地在哪里（宠物粮生产基地）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-node-share-links.htm" title="「12月15日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「12月15日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -134,16 +161,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">38</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

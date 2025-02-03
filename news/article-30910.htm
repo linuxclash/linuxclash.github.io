@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://linuxclash.github.io/news/article-30910.htm" />
@@ -9,6 +9,33 @@
     <title>python对svn进行操作及信息获取</title>
         <meta name="description" content="1、通过python获取路径下所有文件的svn状态2、通过python对svn进行“提交、删除、锁、解锁、删除等操作”3、通过svn打开小乌龟界面  """ SVN状态对照表 """ class Fi" />
         <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-30910.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="python对svn进行操作及信息获取" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/1b467bb0ff0b6eede4b9483613de8115.webp" />
+        <meta property="og:release_date" content="2024-12-25T09:38:37" />
+    <meta property="og:updated_time" content="2024-12-25T09:38:37" />
+        <meta property="og:description" content="1、通过python获取路径下所有文件的svn状态2、通过python对svn进行“提交、删除、锁、解锁、删除等操作”3、通过svn打开小乌龟界面  """ SVN状态对照表 """ class Fi" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python对svn进行操作及信息获取">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-node-subscribe.htm" title="「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月23日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share-links.htm" title="「11月27日」最高速度20.8M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「11月27日」最高速度20.8M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-24340.htm" title="宠物用品批发进货渠道网站推荐（宠物用品批发商）">宠物用品批发进货渠道网站推荐（宠物用品批发商）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-node-subscribe.htm" title="「8月27日」最高速度19.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「8月27日」最高速度19.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-node-share-links.htm" title="「12月15日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「12月15日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-22064.htm" title="JEECG登陆全过程">JEECG登陆全过程</a></li>
-                        <li class="py-2"><a href="/news/article-23902.htm" title="发放动物疫苗简报内容（动物注射疫苗简报）">发放动物疫苗简报内容（动物注射疫苗简报）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-free-node-subscribe.htm" title="「9月17日」最高速度19.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接">「9月17日」最高速度19.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-high-speed-nodes.htm" title="「9月27日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接">「9月27日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-26-node-share.htm" title="「9月26日」最高速度19.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接">「9月26日」最高速度19.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-46516.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/news/article-36630.htm" title="宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司">宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe-links.htm" title="「12月21日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐">「12月21日」最高速度19.7M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-26682.htm" title="猫专科动物医院 猫专科动物医院凌兰园店">猫专科动物医院 猫专科动物医院凌兰园店</a></li>
+                        <li class="py-2"><a href="/news/article-29005.htm" title="Intellij IDEA下载安装配置GIT详细教程 [超详细]">Intellij IDEA下载安装配置GIT详细教程 [超详细]</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-subscribe-node.htm" title="「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44069.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/news/article-38593.htm" title="动物疫苗的正确使用方法是什么 动物疫苗的正确使用方法是什么意思">动物疫苗的正确使用方法是什么 动物疫苗的正确使用方法是什么意思</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share.htm" title="「1月23日」最高速度20.5M/S，2025年Shadowrocket/Clash/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「1月23日」最高速度20.5M/S，2025年Shadowrocket/Clash/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share-links.htm" title="「1月22日」最高速度21.8M/S，2025年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「1月22日」最高速度21.8M/S，2025年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -134,22 +161,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

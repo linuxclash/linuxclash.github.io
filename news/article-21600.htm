@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://linuxclash.github.io/news/article-21600.htm" />
@@ -9,6 +9,33 @@
     <title>实现mysql主从复制、读写分离</title>
         <meta name="description" content="目录  1.1 为什么要做主从复制？ 1.2 主从复制的原理是什么？ 1.3 复制的基本原则 1.4 复制的最大问题 2. 实战MySQL主从复制 2.1 环境说明 2.2 MySQL主从复制的复制方" />
         <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-21600.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="实现mysql主从复制、读写分离" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/74715477c1540e4f673d5c47850463f8.webp" />
+        <meta property="og:release_date" content="2024-12-05T10:04:06" />
+    <meta property="og:updated_time" content="2024-12-05T10:04:06" />
+        <meta property="og:description" content="目录  1.1 为什么要做主从复制？ 1.2 主从复制的原理是什么？ 1.3 复制的基本原则 1.4 复制的最大问题 2. 实战MySQL主从复制 2.1 环境说明 2.2 MySQL主从复制的复制方" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="实现mysql主从复制、读写分离">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-subscribe-node.htm" title="「10月30日」最高速度20.4M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「10月30日」最高速度20.4M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-high-speed-nodes.htm" title="「9月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「9月7日」最高速度22.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-30431.htm" title="宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）">宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-node-share-links.htm" title="「9月23日」最高速度19.5M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接">「9月23日」最高速度19.5M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-high-speed-nodes.htm" title="「12月14日」最高速度22M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「12月14日」最高速度22M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-19769.htm" title="中国动物疫苗十强名单最新图片（全国动物用疫苗销量排行）">中国动物疫苗十强名单最新图片（全国动物用疫苗销量排行）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="「11月24日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月24日」最高速度18.9M/S，2024年Clash/Shadowrocket/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-subscribe-node.htm" title="「12月24日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「12月24日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-node-share.htm" title="「9月11日」最高速度20.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接">「9月11日」最高速度20.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="「12月19日」最高速度21.1M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「12月19日」最高速度21.1M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-32816.htm" title="美联众合动物医院电话 美联众合动物医院电话美容师">美联众合动物医院电话 美联众合动物医院电话美容师</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe.htm" title="「11月9日」最高速度20.9M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「11月9日」最高速度20.9M/S，2024年Clash/SSR/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share.htm" title="「1月26日」最高速度21.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐">「1月26日」最高速度21.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-47035.htm" title="动物疫苗种类哪几种最安全的呢（动物疫苗种类哪几种最安全的呢图片大全）">动物疫苗种类哪几种最安全的呢（动物疫苗种类哪几种最安全的呢图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-node-share.htm" title="「1月15日」最高速度21.8M/S，2025年Shadowrocket/V2ray/SSR/Clash免费机场订阅链接地址，翻墙机场推荐">「1月15日」最高速度21.8M/S，2025年Shadowrocket/V2ray/SSR/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43060.htm" title="宠物疫苗英文（宠物疫苗英文翻译）">宠物疫苗英文（宠物疫苗英文翻译）</a></li>
+                        <li class="py-2"><a href="/news/article-32347.htm" title="猫三联一共几针多少钱多久打一次好呢（猫三联一共几针多少钱多久打一次好呢）">猫三联一共几针多少钱多久打一次好呢（猫三联一共几针多少钱多久打一次好呢）</a></li>
+                        <li class="py-2"><a href="/news/article-42069.htm" title="公务员2021国考报名人数统计 公务员2021国考报名人数统计表">公务员2021国考报名人数统计 公务员2021国考报名人数统计表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「11月11日」最高速度21.7M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-27146.htm" title="python读取HDFS文件">python读取HDFS文件</a></li>
                     </ul>
     </div>
 </div>
@@ -134,22 +161,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

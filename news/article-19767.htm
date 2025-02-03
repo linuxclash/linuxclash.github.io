@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://linuxclash.github.io/news/article-19767.htm" />
@@ -9,6 +9,33 @@
     <title>JS encodeURI和encodeURIComponent()方法的使用</title>
         <meta name="description" content="在我们平时的开发中，经常会出现一些无效的URI，什么是无效的URI呢？比如说包含空格，冒号，等号等，会影响解析。这时候我们就需要encodeURI或者encodeURIComponent()方法出动了" />
         <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-19767.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="JS encodeURI和encodeURIComponent()方法的使用" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/74715477c1540e4f673d5c47850463f8.webp" />
+        <meta property="og:release_date" content="2024-12-01T10:01:21" />
+    <meta property="og:updated_time" content="2024-12-01T10:01:21" />
+        <meta property="og:description" content="在我们平时的开发中，经常会出现一些无效的URI，什么是无效的URI呢？比如说包含空格，冒号，等号等，会影响解析。这时候我们就需要encodeURI或者encodeURIComponent()方法出动了" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JS encodeURI和encodeURIComponent()方法的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-node-share-links.htm" title="「11月29日」最高速度21.5M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「11月29日」最高速度21.5M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-node-share.htm" title="「10月2日」最高速度18.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接">「10月2日」最高速度18.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-subscribe-node.htm" title="「10月7日」最高速度19.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接">「10月7日」最高速度19.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-29-free-node-subscribe-links.htm" title="「8月29日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接">「8月29日」最高速度21.7M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-node-share.htm" title="「10月25日」最高速度21.8M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐">「10月25日」最高速度21.8M/S，2024年Shadowrocket/Clash/SSR/V2ray免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-28081.htm" title="没经验的新手开宠物店怎么样?（零基础开宠物店）">没经验的新手开宠物店怎么样?（零基础开宠物店）</a></li>
-                        <li class="py-2"><a href="/news/article-29470.htm" title="DataView和DataTable的区别、联系、以及相互转化方法">DataView和DataTable的区别、联系、以及相互转化方法</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-node-subscribe.htm" title="「8月27日」最高速度19.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接">「8月27日」最高速度19.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-node-share.htm" title="「12月2日」最高速度21.7M/S，2024年Shadowrocket/Clash/V2ray/SSR免费机场订阅节点链接，翻墙机场推荐">「12月2日」最高速度21.7M/S，2024年Shadowrocket/Clash/V2ray/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-25756.htm" title="免费领养动物的app（免费领养宠物的平台）">免费领养动物的app（免费领养宠物的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-26201.htm" title="丹阳宠物免费领养中心在哪里（丹阳市宠物市场在哪里）">丹阳宠物免费领养中心在哪里（丹阳市宠物市场在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-47992.htm" title="济南宠物领养中心在哪个位置呀（济南宠物寄养中心）">济南宠物领养中心在哪个位置呀（济南宠物寄养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-30431.htm" title="宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）">宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="「1月10日」最高速度19M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐">「1月10日」最高速度19M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-high-speed-nodes.htm" title="「1月29日」最高速度20.8M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「1月29日」最高速度20.8M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-31875.htm" title="python mysql where in 对列表（list,,array）问题">python mysql where in 对列表（list,,array）问题</a></li>
+                        <li class="py-2"><a href="/news/article-50018.htm" title="网上买的疫苗可以给狗打吗（可以在网上买疫苗给幼犬打吗）">网上买的疫苗可以给狗打吗（可以在网上买疫苗给幼犬打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-24829.htm" title="上海宠物领养救助中心电话（上海宠物中心领养地址）">上海宠物领养救助中心电话（上海宠物中心领养地址）</a></li>
+                        <li class="py-2"><a href="/news/article-31287.htm" title="开宠物诊所需要哪些手续（想开宠物诊所需要什么）">开宠物诊所需要哪些手续（想开宠物诊所需要什么）</a></li>
+                        <li class="py-2"><a href="/news/article-33767.htm" title="Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片">Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</a></li>
                     </ul>
     </div>
 </div>
@@ -134,22 +161,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

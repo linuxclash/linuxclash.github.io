@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://linuxclash.github.io/news/article-23448.htm" />
@@ -9,6 +9,33 @@
     <title>Go语言标准库log介绍</title>
         <meta name="description" content="无论是软件开发的调试阶段还是软件上线之后的运行阶段，日志一直都是非常重要的一个环节，我们也应该养成在程序中记录日志的好习惯。  Go语言内置的log包实现了简单的日志服务。本文介绍了标准库log的基本" />
         <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-23448.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="Go语言标准库log介绍" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/d9e85d68da51c2f34fc3b6400f42e1b2.webp" />
+        <meta property="og:release_date" content="2024-12-09T10:27:41" />
+    <meta property="og:updated_time" content="2024-12-09T10:27:41" />
+        <meta property="og:description" content="无论是软件开发的调试阶段还是软件上线之后的运行阶段，日志一直都是非常重要的一个环节，我们也应该养成在程序中记录日志的好习惯。  Go语言内置的log包实现了简单的日志服务。本文介绍了标准库log的基本" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Go语言标准库log介绍">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
     <!-- animate CSS -->
@@ -113,16 +140,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-node-share.htm" title="「10月27日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「10月27日」最高速度18.4M/S，2024年SSR/Shadowrocket/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-subscribe-node.htm" title="「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-31877.htm" title="我所在的城市里有一个大动物园英语 我所在的城市里有一个大动物园英语怎么说">我所在的城市里有一个大动物园英语 我所在的城市里有一个大动物园英语怎么说</a></li>
-                        <li class="py-2"><a href="/news/article-27616.htm" title="2021公务员国考报考条件是什么（2022公务员国考报考条件）">2021公务员国考报考条件是什么（2022公务员国考报考条件）</a></li>
-                        <li class="py-2"><a href="/news/article-33282.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-free-node-subscribe.htm" title="「9月15日」最高速度18.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接">「9月15日」最高速度18.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe.htm" title="「12月29日」最高速度20.2M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月29日」最高速度20.2M/S，2024年Shadowrocket/SSR/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-29470.htm" title="DataView和DataTable的区别、联系、以及相互转化方法">DataView和DataTable的区别、联系、以及相互转化方法</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-node-share-links.htm" title="「10月15日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「10月15日」最高速度20.6M/S，2024年SSR/Clash/V2ray/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐">「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-23448.htm" title="Go语言标准库log介绍">Go语言标准库log介绍</a></li>
+                        <li class="py-2"><a href="/news/article-25756.htm" title="免费领养动物的app（免费领养宠物的平台）">免费领养动物的app（免费领养宠物的平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-subscribe-node.htm" title="「12月20日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐">「12月20日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24829.htm" title="上海宠物领养救助中心电话（上海宠物中心领养地址）">上海宠物领养救助中心电话（上海宠物中心领养地址）</a></li>
+                        <li class="py-2"><a href="/news/article-41080.htm" title="Vue 学习  之 封装模块方法">Vue 学习  之 封装模块方法</a></li>
+                        <li class="py-2"><a href="/news/article-26198.htm" title="长沙市宠物领养中心地址（长沙宠物领养救助站）">长沙市宠物领养中心地址（长沙宠物领养救助站）</a></li>
+                        <li class="py-2"><a href="/news/article-44549.htm" title="win11系统没有应用商店如何解决">win11系统没有应用商店如何解决</a></li>
+                        <li class="py-2"><a href="/news/article-29005.htm" title="Intellij IDEA下载安装配置GIT详细教程 [超详细]">Intellij IDEA下载安装配置GIT详细教程 [超详细]</a></li>
+                        <li class="py-2"><a href="/news/article-47992.htm" title="济南宠物领养中心在哪个位置呀（济南宠物寄养中心）">济南宠物领养中心在哪个位置呀（济南宠物寄养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-node-subscribe-links.htm" title="「12月27日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「12月27日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -134,22 +161,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-50533.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue项目中使用Mockjs造假数据</title>
+        <meta name="description" content="需求场景：要get请求接口'/api/userInfo/list'      项目准备：      首先，安装项目中mockjs包、axios     npm install mockjs axios" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-50533.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="Vue项目中使用Mockjs造假数据" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/5f55e190205ab9a366528cfddd2ffa18.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:27:24" />
+    <meta property="og:updated_time" content="2025-02-03T09:27:24" />
+        <meta property="og:description" content="需求场景：要get请求接口'/api/userInfo/list'      项目准备：      首先，安装项目中mockjs包、axios     npm install mockjs axios" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue项目中使用Mockjs造假数据">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="#">关于</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">联系</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Vue项目中使用Mockjs造假数据</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html" style="font-size: 16px;"> <div>   <br class="Apple-interchange-newline"/>需求场景：要get请求接口'/api/userInfo/list'  </div> <div>   项目准备：  </div> <div>   首先，安装项目中mockjs包、axios  </div> <div> <div class="cnblogs_code"> <pre><code class="has">npm install mockjs axios</code> </pre> </p></div> </p></div> <div>   然后，src根<br />   目录下新建mock文件夹和mock.js、urls.js  </div> <div>   (目录结构不强求，主要还是看你项目的划分。也可以单独出一个request文件，放axios.js、mock.js、和专门整理接口用的url.js)  </div> <div>   user.vue文件中，接口请求代码(以axios为例)：  </div> <div> <div class="cnblogs_code"> <pre><code class="has">&lt;template&gt;   &lt;div class="api-element"&gt;     &lt;div class="area"&gt;       &lt;el-table :data="userTableData" &gt;         &lt;el-table-column fixed label="日期" prop="date" width="150"&gt;&lt;/el-table-column&gt;         &lt;el-table-column label="姓名" prop="name" width="120"&gt;&lt;/el-table-column&gt;         &lt;el-table-column label="省份" prop="province" width="120"&gt;&lt;/el-table-column&gt;         &lt;el-table-column label="市区" prop="city" width="120"&gt;&lt;/el-table-column&gt;         &lt;el-table-column label="地址" prop="address" width="300"&gt;&lt;/el-table-column&gt;         &lt;el-table-column label="邮编" prop="zip" width="120"&gt;&lt;/el-table-column&gt;       &lt;/el-table&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt; &lt;script&gt; import axios from 'axios' // 引入axios import urls from '@/mock/urls'  // 引入实现准备好的接口请求相关配置 export default {   name: 'MockTest',   data() {     return {       userTableData: [] // 定义需要的数据     }   },   mounted() {     // 数据mock、请求拦截     axios[urls.userTableData.type](urls.userTableData.url)       .then((response) =&gt; {         this.userTableData = response &amp;&amp; response.data         log(this.userTableData);       })       .catch(function (error) {         log(error);       });   }, } &lt;/script&gt;</code> </pre> </p></div> </p></div> <div>   接口相关配置文件urls.js：  </div> <div>   主要记录每条接口需要请求的地址(加过代理的)、请求的方式(get等，方便管理)  </div> <div> <div class="cnblogs_code"> <pre><code class="has">export default {     userTableData: {         url: '/api/userInfo/list',         type: 'get'     } }</code> </pre> </p></div> </p></div> <div>   mock.js文件内部：  </div> <div>   首先，引入mockjs和需要的变量值urls.js  </div> <div> <div class="cnblogs_code"> <pre><code class="has">import Mock, { Random } from 'mockjs' import urls from './urls'</code> </pre> </p></div> </p></div> <div>   然后，定义第一个假数据userTableData，是一个长度为10的数组，数组每一项都是对象，对象键根据vue中表格需要进行配置。  </div> <div> <div class="cnblogs_code"> <pre><code class="has">let params = Mock.mock({ // 数据池     'userTableData|10': [{ // 图表过滤所需数据         'name': '@cname',         'date': '@date',         'province': '@province',         'city': '@city',         'address': '@county(true) @ctitle() @natural(1000,9999) 号',         'zip': '@zip'     }] }) // 设置请求时长200-600毫秒，模拟真实接口请求场景 Mock.setup({     timeout: '200-600' }) // 拦截urls.userTableData.url对应地址的请求，方式urls.userTableData.type，返回值为params.userTableData Mock.mock(urls.userTableData.url, urls.userTableData.type, params.userTableData) // 请求该接口时，拦截请求并返回对应数据 </code> </pre> </p></div> </p></div> <div>   最后，观察vue文件中的ajax请求，返回的response.data的数据就是我们mock的params.userTableData假数据。大功告成，可以专心写逻辑了。  </div> <div>   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/xingorg1/JuFengGuo/blob/master/advanceCourse/3-VUE/5-vue-api/src/components/Element.vue"  target="_blank" rel="nofollow">源码地址</a>  </div> <div>   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/xingorg1/JuFengGuo/commit/f3a151796fb0b7b6bf3e58002d3d7a9e762066a7"  target="_blank" rel="nofollow">相关代码提交记录</a>  </div> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50532.htm">前端面试题：手写用js的函数 实现和instanceof 一样的功能</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33282.htm" title="Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程">Android 12图像显示系统简述Allocator/Mapper HAL服务的获取过程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-node-subscribe.htm" title="「12月6日」最高速度22.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「12月6日」最高速度22.8M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="「12月19日」最高速度21.1M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「12月19日」最高速度21.1M/S，2024年SSR/V2ray/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-subscribe-node.htm" title="「2月2日」最高速度19M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐">「2月2日」最高速度19M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43060.htm" title="宠物疫苗英文（宠物疫苗英文翻译）">宠物疫苗英文（宠物疫苗英文翻译）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-node-share-links.htm" title="「1月6日」最高速度18.7M/S，2025年Shadowrocket/Clash/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「1月6日」最高速度18.7M/S，2025年Shadowrocket/Clash/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-node-share-links.htm" title="「11月19日」最高速度21.5M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐">「11月19日」最高速度21.5M/S，2024年V2ray/SSR/Clash/Shadowrocket免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-25756.htm" title="免费领养动物的app（免费领养宠物的平台）">免费领养动物的app（免费领养宠物的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-46517.htm" title="宠物粮行业分析报告范文（宠物粮食市场前景）">宠物粮行业分析报告范文（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/news/article-36632.htm" title="动物疫苗去哪里打的（被动物咬了去哪里打疫苗）">动物疫苗去哪里打的（被动物咬了去哪里打疫苗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
