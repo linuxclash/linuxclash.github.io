@@ -1,4 +1,4 @@
-# 「2月21日」最高速度19.4M/S，2025年V2ray/Shadowrocket/SSR/Clash免费机场订阅链接地址，翻墙机场推荐  更新时间 2025-02-21 09:36:19
+# 「2月26日」最高速度18.5M/S，2025年Shadowrocket/Clash/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐  更新时间 2025-02-26 08:53:52
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://linuxclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://linuxclash.github.io/uploads/2025/02/0-20250221.yaml
-- https://linuxclash.github.io/uploads/2025/02/1-20250221.yaml
-- https://linuxclash.github.io/uploads/2025/02/2-20250221.yaml
-- https://linuxclash.github.io/uploads/2025/02/3-20250221.yaml
-- https://linuxclash.github.io/uploads/2025/02/4-20250221.yaml
+- https://linuxclash.github.io/uploads/2025/02/0-20250226.yaml
+- https://linuxclash.github.io/uploads/2025/02/1-20250226.yaml
+- https://linuxclash.github.io/uploads/2025/02/2-20250226.yaml
+- https://linuxclash.github.io/uploads/2025/02/3-20250226.yaml
+- https://linuxclash.github.io/uploads/2025/02/4-20250226.yaml
 
 ### V2ray订阅链接
 
-- https://linuxclash.github.io/uploads/2025/02/0-20250221.txt
-- https://linuxclash.github.io/uploads/2025/02/1-20250221.txt
-- https://linuxclash.github.io/uploads/2025/02/2-20250221.txt
-- https://linuxclash.github.io/uploads/2025/02/3-20250221.txt
-- https://linuxclash.github.io/uploads/2025/02/4-20250221.txt
+- https://linuxclash.github.io/uploads/2025/02/0-20250226.txt
+- https://linuxclash.github.io/uploads/2025/02/1-20250226.txt
+- https://linuxclash.github.io/uploads/2025/02/2-20250226.txt
+- https://linuxclash.github.io/uploads/2025/02/3-20250226.txt
+- https://linuxclash.github.io/uploads/2025/02/4-20250226.txt
 
 ### Sing-box订阅链接
 
-- https://linuxclash.github.io/uploads/2025/02/20250221.json
+- https://linuxclash.github.io/uploads/2025/02/20250226.json
 
 ## 更多clash节点订阅 ：
 

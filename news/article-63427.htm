@@ -1,0 +1,230 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-63427.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HDFS Quotas Guide（HDFS配额指南）</title>
+        <meta name="description" content="Name Quota示例  Space Quota示例 目录  			   HDFS Quotas Guide官网链接2.9.2版本HDFS Quotas Guide官网链接2.7.1版本 简介：Ha" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-63427.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="HDFS Quotas Guide（HDFS配额指南）" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/f5d1f0332351846733682375d77f1ab6.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:35:09" />
+    <meta property="og:updated_time" content="2025-02-26T08:35:09" />
+        <meta property="og:description" content="Name Quota示例  Space Quota示例 目录  			   HDFS Quotas Guide官网链接2.9.2版本HDFS Quotas Guide官网链接2.7.1版本 简介：Ha" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="HDFS Quotas Guide（HDFS配额指南）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>HDFS Quotas Guide（HDFS配额指南）</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="Name Quota示例">Name Quota示例</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="Space Quota示例">Space Quota示例</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <article class="_2rhmJa" style="font-size: 16px;" rel="nofollow"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=http%3A%2F%2Fhadoop.apache.org%2Fdocs%2Fstable%2Fhadoop-project-dist%2Fhadoop-hdfs%2FHdfsQuotaAdminGuide.html"  target="_blank" rel="nofollow">HDFS Quotas Guide官网链接2.9.2版本</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fhadoop.apache.org%2Fdocs%2Fr2.7.1%2Fhadoop-project-dist%2Fhadoop-hdfs%2FHdfsQuotaAdminGuide.html"  target="_blank" rel="nofollow">HDFS Quotas Guide官网链接2.7.1版本</a></p> <p>简介：Hadoop提供两种配额（quota）模式，name quota和space quota。name quota限制路径的文件（含文件夹）数目，space quota限制的”磁盘”占用空间。可以通过此功能实现团队的存储使用管理。</p> </h1> <ul> <li>Set the name quota to be N for each directory. Best effort for each directory, with faults reported if N is not a positive long integer, the directory does not exist or it is a file, or the directory would immediately exceed the new quota.<br /><code>$ hadoop dfsadmin -setQuota &lt;max_number&gt; &lt;directory&gt;</code> </li> <li>Remove any name quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -setSpaceQuota &lt;max_size&gt; &lt;directory&gt;</code> </li> <li>Remove any name quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -clrQuota &lt;directory&gt;</code> </li> <li>Remove any space quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -clrSpaceQuota &lt;directory&gt;</code> </li> </ul> <span class="directory"></span><h4 id="title-0">Name Quota示例</h4> <p>首先测试name quota，进行如下操作：</p> <ul> <li>准备hdfs路径，设置name quota，文件数量限制为5</li> </ul> <pre class="has"><code class="shell">$hdfs dfs -mkdir /name_quota $hdfs dfsadmin -setQuota 5 /name_quota</code></pre> <pre class="has"><code>$touch 1 $hdfs dfs -copyFromLocal 1 /name_quota/1 $hdfs dfs -copyFromLocal 1 /name_quota/2 $hdfs dfs -copyFromLocal 1 /name_quota/3 $hdfs dfs -copyFromLocal 1 /name_quota/4 $hdfs dfs -copyFromLocal 1 /name_quota/5 copyFromLocal: The NameSpace quota (directories and files) of directory /name_quota is exceeded: quota=5 file count=6</code></pre> <p>创建一个临时文件“1“，并将它复制到指定hdfs路径下，发现，当复制到第5个时失败，提示显示达到quota限制，说明quota生效，同时，我们设置quota_max_num为5，但只放了4个文件就满了，说明这个数字限制是包含文件夹的。<br /> 实际上是可以理解的，在HDFS中，无论文件和文件夹的基本抽象是一样的，占用基本同样的元数据信息，name quota实际上是元数据信息的配额。</p> <span class="directory"></span><h4 id="title-1">Space Quota示例</h4> <ul> <li>创建测试路径并设置space quota</li> </ul> <pre class="has"><code class="shell">$hdfs dfs -mkdir /space_quota $hdfs dfsadmin -setSpaceQUota 50m /space_quota</code></pre> <pre class="has"><code class="shell">$mkfile 10m 10m $hdfs dfs -copyFromLocal 10m /space_quota/10m_1</code></pre> <p>利用mkfile命令创建一个大小10m的文件（我用的是Mac，Linux系统使用dd命令创建指定大小文件），预期是在这个hdfs路径下可以存放5个10m的文件，第六个会超出，但实际情况是，第一个就失败了，报错如下：<br /><code>Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.protocol.DSQuotaExceededException): The DiskSpace quota of /space_quota is exceeded: quota = 52428800 B = 50 MB but diskspace consumed = 134217728 B = 128 MB</code><br /> 看提示就理解，因为HDFS是以block为单位进行实际存储的，对于一个10m的文件，仍然会打成一个block存储，我的HDFS block size是128m，所以space quota配置50m，一个block也放不下，自然失败，因此进行一下改动，重新设置：</p> <pre class="has"><code class="shell">$hdfs dfsadmin -setSpaceQUota 1024m /space_quota $mkfile 128m 128m $ hdfs dfs -copyFromLocal 128m /space_quota/128m_1 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_2 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_3 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_4 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_5 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_6 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_7 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_8 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_9</code></pre> <p>1024m的配额，可以放8个128m文件，在放第九个时，报错，核心信息如下：</p> <p><code>18/05/18 16:13:01 WARN hdfs.DFSClient: DataStreamer Exception org.apache.hadoop.hdfs.protocol.DSQuotaExceededException: The DiskSpace quota of /space_quota is exceeded: quota = 1073741824 B = 1 GB but diskspace consumed = 1207959552 B = 1.13 GB</code><br /> 符合预期，成功限制了规定路径下的存储空间配额。</p> <p>另外，经过测试（示例不详述），name quota和space quota可以同时作用于同一路径。</p> </article> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62841.htm">三国杀角色台词代码大全（三国杀台词代码大全集最新）</a></p>
+                                        <p>下一个：<a href="/news/article-63429.htm">MySQL必知必会</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-node-subscribe.htm" title="「12月31日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray免费机场订阅链接地址，翻墙机场推荐">「12月31日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44550.htm" title="动物疫苗的正确使用方法有哪些图片 动物疫苗的正确使用方法有哪些图片大全">动物疫苗的正确使用方法有哪些图片 动物疫苗的正确使用方法有哪些图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-50018.htm" title="网上买的疫苗可以给狗打吗（可以在网上买疫苗给幼犬打吗）">网上买的疫苗可以给狗打吗（可以在网上买疫苗给幼犬打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-24342.htm" title="动物接种疫苗多少钱一针啊图片大全视频（动物疫苗接种时间表）">动物接种疫苗多少钱一针啊图片大全视频（动物疫苗接种时间表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share.htm" title="「1月26日」最高速度21.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐">「1月26日」最高速度21.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-subscribe-node.htm" title="「2月18日」最高速度19.6M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「2月18日」最高速度19.6M/S，2025年V2ray/SSR/Clash/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24340.htm" title="宠物用品批发进货渠道网站推荐（宠物用品批发商）">宠物用品批发进货渠道网站推荐（宠物用品批发商）</a></li>
+                        <li class="py-2"><a href="/news/article-48388.htm" title="宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）">宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）</a></li>
+                        <li class="py-2"><a href="/news/article-40576.htm" title="自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）">自己买疫苗去宠物店打多少钱（自己买疫苗去宠物店打多少钱啊）</a></li>
+                        <li class="py-2"><a href="/news/article-25291.htm" title="领养宠物赚收益吗（领养宠物要花钱吗）">领养宠物赚收益吗（领养宠物要花钱吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
