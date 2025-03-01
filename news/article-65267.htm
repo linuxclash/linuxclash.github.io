@@ -1,0 +1,233 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-65267.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>python中os.path模块</title>
+        <meta name="description" content="os.path模块是os模块根据系统类型从另一个模块导入的，并非由os模块实现 1、os.path.abspath（相对路径）-----返回对应路径的绝对路径 os.path.abspath(".")" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-65267.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="python中os.path模块" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/80cb2c35eef5c13911f190e1a3eedf4e.webp" />
+        <meta property="og:release_date" content="2025-03-01T06:59:42" />
+    <meta property="og:updated_time" content="2025-03-01T06:59:42" />
+        <meta property="og:description" content="os.path模块是os模块根据系统类型从另一个模块导入的，并非由os模块实现 1、os.path.abspath（相对路径）-----返回对应路径的绝对路径 os.path.abspath(".")" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python中os.path模块">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>python中os.path模块</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>os.path模块是os模块根据系统类型从另一个模块导入的，并非由os模块实现</p> <p>1、os.path.abspath（相对路径）-----返回对应路径的绝对路径 os.path.abspath(".")</p> <pre><code>import os.path print(os.path.abspath("."))</code></pre> <blockquote> <p>E:\python练习</p> </blockquote> <p>上一层路径“..”</p> <pre><code>import os.path print(os.path.abspath(".."))</code></pre> <blockquote> <p>E:\</p> </blockquote> <p>2、os.path.altsep 查看python中的各个符号（了解）</p> <p>3、os.path.dirname（）-----目录提取函数</p> <p>使用后可以得知文件所在目录，同时它可以从下往上一层一层提取目录，使用后路径会少一层目录</p> <pre><code>import os.path path = "E:/python/test/os.path" print(os.path.dirname(path)) print(os.path.dirname(os.path.dirname(path)))</code></pre> <blockquote> <p>E:/python/test<br /> E:/python</p> </blockquote> <p>注意：如果提供一个空字符串则返回当前文件所在目录的绝对路径，如果提供不带路径分割符的字符串则会返回绝对路径加上该字符串，但当字符串中有路径分割符则会把该字符串当做绝对路径返回</p> <p>4、os.path.basename（）--文件名称</p> <p>可以提取出文件名称</p> <p>5、os.path.exists ----判断文件或者目录是否存在（特别有用，使用爬虫的时候)</p> <p>存在返回True，否则返回False；Windows下如果目标路径为链接文件则会返回False</p> <pre><code>import os.path print(os.path.exists("E:\python练习"))</code></pre> <blockquote> <p>True</p> </blockquote> <p>6、os.path.getatime（path） -----返回最后一次访问指定路径的时间</p> <p>7、os.path.getctime （path）-----获取系统指定路径的ctime（ctime指的是UNIX中指定路径的最后一次元数据更改）</p> <p>8、os.path.getmtime （path）-----获取指定路径的最后修改时间</p> <p>9、os.path.getsize -----获取文件的大小，单位是字节</p> <p>10、os.path.isdir -----判断Path是不是目录(文件夹)</p> <pre><code>import os.path print(os.path.isdir("E:\python练习"))</code></pre> <blockquote> <p>True</p> </blockquote> <p>11、os.path.isfile -----判断Path是不是文件</p> <pre><code>import os.path print(os.path.exists("demo1.py"))</code></pre> <blockquote> <p>True</p> </blockquote> <p>如果只给定文件名，则会默认搜索路径为当前路径</p> <p>12、os.path.isabs ---判断是不是绝对路径</p> <pre><code>import os.path print(os.path.isabs("E:\python练习")) print(os.path.isabs("python练习"))</code></pre> <blockquote> <p>True<br /> False</p> </blockquote> <p>13、os.path.islink（path） ----判断给定的文件路径是不是链接</p> <p>在Windows下是直接返回False，只可在Linux下使用</p> <p>14、os.path.ismount ----判断是不是挂载文件（Linux下使用)</p> <p>15、os.path.join （path1,path2）------路径拼接函数</p> <pre><code>import os.path print(os.path.join("python","test","os.path"))</code></pre> <blockquote> <p>python\test\os.path</p> </blockquote> <p>16、os.path.pathjion(url,name)</p> <p>17、os.path.sep -----路径的分隔符</p> <p>18、os.path.split（path）-----分割路径</p> <p>此函数会找到path中的最后一个斜杠并对斜杠两边进行分割，返回值为元组（斜杠前部分和斜杠后部分）</p> <pre><code>import os.path print(os.path.split("E:\python练习\test\os.path")) print(os.path.split("E:\python练习\test\\"))</code></pre> <blockquote> <p>('E:\\python练习\test', 'os.path')<br /> ('E:\\python练习\test', '')</p> </blockquote> <p>注意：当斜杠后没内容时，则斜杠后部分为空</p> <p>19、os.path.realpath ----返回真实的路径和abspath是一样的</p> <p>返回所对应的真实文件的路径</p> <pre><code>import os.path print(os.path.realpath("."))</code></pre> <blockquote> <p>E:\python练习</p> </blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-64664.htm">动物防疫站可以给人打狂犬疫苗吗（动物防疫站可以给人打狂犬疫苗吗要钱吗）</a></p>
+                                        <p>下一个：<a href="/news/article-65270.htm">猫在玄学里代表什么（猫在易经中寓意什么）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50532.htm" title="前端面试题：手写用js的函数 实现和instanceof 一样的功能">前端面试题：手写用js的函数 实现和instanceof 一样的功能</a></li>
+                        <li class="py-2"><a href="/news/article-19309.htm" title="CSS 修改滚动条样式 隐藏浏览器滚动条">CSS 修改滚动条样式 隐藏浏览器滚动条</a></li>
+                        <li class="py-2"><a href="/news/article-39571.htm" title="三国杀武将展示图（三国杀武将展示图高清）">三国杀武将展示图（三国杀武将展示图高清）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-node-subscribe.htm" title="「1月14日」最高速度19.4M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐">「1月14日」最高速度19.4M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-50019.htm" title="宠物猫领养去哪个平台（领养宠物的平台猫咪）">宠物猫领养去哪个平台（领养宠物的平台猫咪）</a></li>
+                        <li class="py-2"><a href="/news/article-47503.htm" title="动物疫苗注射方法视频讲解 动物疫苗注射方法视频讲解教程">动物疫苗注射方法视频讲解 动物疫苗注射方法视频讲解教程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐">「11月23日」最高速度22.6M/S，2024年SSR/V2ray/Shadowrocket/Clash免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24829.htm" title="上海宠物领养救助中心电话（上海宠物中心领养地址）">上海宠物领养救助中心电话（上海宠物中心领养地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share.htm" title="「1月21日」最高速度22.9M/S，2025年Shadowrocket/Clash/V2ray/SSR免费机场订阅链接地址，翻墙机场推荐">「1月21日」最高速度22.9M/S，2025年Shadowrocket/Clash/V2ray/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-30431.htm" title="宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）">宠物店猫粮品牌（宠物店里的猫粮是哪里批发的）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

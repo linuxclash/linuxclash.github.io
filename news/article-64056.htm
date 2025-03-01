@@ -1,0 +1,233 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-64056.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>一行代码让你的项目轻松使用Dapr</title>
+        <meta name="description" content="介绍 Dapr简化了云原生开发，让开发可以把焦点放在应用的业务逻辑上，从而让代码简单、可移植，那作为一个.Net开发者，我们也希望项目可以快速用上dapr，那究竟应该如何做呢？ Dapr提出了Side" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-64056.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="一行代码让你的项目轻松使用Dapr" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/80cb2c35eef5c13911f190e1a3eedf4e.webp" />
+        <meta property="og:release_date" content="2025-02-27T05:56:47" />
+    <meta property="og:updated_time" content="2025-02-27T05:56:47" />
+        <meta property="og:description" content="介绍 Dapr简化了云原生开发，让开发可以把焦点放在应用的业务逻辑上，从而让代码简单、可移植，那作为一个.Net开发者，我们也希望项目可以快速用上dapr，那究竟应该如何做呢？ Dapr提出了Side" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一行代码让你的项目轻松使用Dapr">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>一行代码让你的项目轻松使用Dapr</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="介绍">介绍</h2> <p>Dapr简化了云原生开发，让开发可以把焦点放在应用的业务逻辑上，从而让代码简单、可移植，那作为一个.Net开发者，我们也希望项目可以快速用上dapr，那究竟应该如何做呢？</p> <p>Dapr提出了Sidecar(边车)的概念，在启动项目时再额外启动一个Sidecar, 通过Sidecar可以解决进程间通信，为此官方提供了两种<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/zh-hans/operations/hosting/"  target="_blank" rel="nofollow">部署方式</a>：</p> <ol> <li>自托管方式下运行Dapr</li> <li>在 Kubernetes 模式中部署和运行 Dapr</li> </ol> <p>其中Kubernetes模式部署是通过Kubernetes来完成的，在开发中我们更多的是通过自托管模式使用Dapr，那自托管模式是怎么做的呢？</p> <p>使用命令行工具，在项目根目录输入：</p> <pre><code>dapr run --app-id assignment-server --app-port 5038 dotnet run</code></pre> <blockquote> <p>详细文档参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/doddgu/p/dapr-learning-3.html"  target="_blank" rel="nofollow">手把手教你学Dapr - 3. 使用Dapr运行第一个.Net程序</a></p> </blockquote> <p>参考以上<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/doddgu/p/dapr-learning-3.html"  target="_blank" rel="nofollow">详细文档</a>操作后，我们就可以在命令行工具中执行<code>dapr invoke --app-id assignment-server --method hello</code>或者<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/zh-hans/reference/api/service_invocation_api/"  target="_blank" rel="nofollow">Http请求</a>来调用对应的应用的方法</p> <p>看似好像也不是很复杂，但如果你需要调试dotnet项目呢？再复杂一点的需要启动多个项目进行调试呢？端口一多起来的确会显得很麻烦。</p> <p>有没有什么办法可以解决呢？有，docker-compose。</p> <p>但我还不想用这么重的东西，我想像平时开发项目一样直接在windows上运行可不可以？</p> <h2 id="masautilsdevelopmentdapraspnetcore-它来了">Masa.Utils.Development.Dapr.AspNetCore 它来了</h2> <p>协助管理dapr进程，用于开发时减少对docker compose的依赖</p> <p>瞌睡了就有人送枕头，一句话让我们了解到了它的作用，正好解决了我们需要通过命令行来启动dapr的问题，那下面我们看看这个怎么用：</p> <h3 id="入门">入门</h3> <p>本着绝对不多写一行代码的心态，我们准备出发了……</p> <ol> <li> <p>从大佬doddgu的博客的链接中发现一份源码地址，为防止后期文档调整，先fork一份到自己仓库</p> <pre><code class="language-shell">git clone https://github.com/zhenlei520/dapr-study-room.git</code></pre> </li> <li> <p>使用命令行工具打开目录dapr-study-room\Assignment03，然后执行命令</p> <pre><code>dotnet add package Masa.Utils.Development.Dapr.AspNetCore --version 0.4.0-preview.3</code></pre> <blockquote> <p>或使用Visual Studio打开解决方案Assignment03，选中Assignment.Server并安装Masa.Utils.Development.Dapr.AspNetCore</p> </blockquote> </li> <li> <p>打开<code>Program.cs</code>，并添加DaprStarter（注意看有注释的那一行）</p> <pre><code class="language-C#">using Masa.Utils.Development.Dapr.AspNetCore;  var builder = WebApplication.CreateBuilder(args); builder.Services.AddDaprStarter();//添加DaprStarter即可 var app = builder.Build();  app.Map("/hello", () =&gt; Console.WriteLine("Hello World!"));  app.Run();</code></pre> </li> <li> <p>使用命令行工具执行命令验证dapr是否启动成功</p> <pre><code class="language-shell">dapr invoke --app-id Assignment-Server-00D861D0C0B7 --method hello</code></pre> </li> </ol> <p>此时会有小伙伴问了，为什么app-id是Assignment-Server-00D861D0C0B7？</p> <p>查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/masastack/MASA.Utils/blob/main/src/Development/Masa.Utils.Development.Dapr/README.zh-CN.md#%E8%A7%84%E5%88%99"  target="_blank" rel="nofollow">文档</a>后发现<code>Masa.Utils.Development.Dapr.AspNetCore</code>的app-id生成规则为：<code>AppId + AppIdDelimiter + AppIdSuffix</code>，其中</p> <ul> <li>AppId默认：项目名.Replace(".","-")</li> <li>AppIdSuffix默认：网卡地址</li> </ul> <p>由于我们的项目名为Assignment.Server，当前电脑的网卡地址是00D861D0C0B7，所以dapr最终的appid为Assignment-Server-00D861D0C0B7，到这里，Masa.Utils.Development.Dapr.AspNetCore的使用讲解已经完成了</p> <blockquote> <p>冷知识，为什么 . 要换成 - ？</p> <p>因为Dapr的AppId采用FQDN：(Fully Qualified Domain Name)全限定域名：同时带有主机名和域名的名称。（通过符号“.”）</p> <p>为什么要加网卡地址作为后缀？</p> <p>因为目前自托管默认采用mDNS，会导致局域网内用户的AppId互相污染。你的同事和你一起在开发，都启动了A应用，你俩就自动负载了，那后果自然就是请求也到处跑了。</p> </blockquote> <h3 id="进阶">进阶</h3> <p>如果我希望自己指定AppId而不是使用默认的规则怎么办呢？目前支持三种写法:</p> <ul> <li>根据规则（配置默认装配）</li> <li>根据规则 + 代码指定（配置自定义装配）</li> <li>根据配置文件（根据IConfiguration配置生成）</li> </ul> <h4 id="配置默认装配也是上面介绍的一行代码的方式">配置默认装配（也是上面介绍的一行代码的方式）</h4> <p>修改<code>Program.cs</code>文件</p> <pre><code class="language-csharp">// 省略上述代码 builder.Services.AddDaprStarter();</code></pre> <h4 id="根据规则--代码指定配置自定义装配">根据规则 + 代码指定（配置自定义装配）</h4> <p>修改<code>Program.cs</code>文件</p> <pre><code class="language-csharp">// 省略上述代码 builder.Services.AddDaprStarter(opt =&gt; {     opt.AppId = "masa-dapr-test";     opt.AppPort = 5001;     opt.AppIdSuffix = "";     opt.DaprHttpPort = 8080;     opt.DaprGrpcPort = 8081; });</code></pre> <blockquote> <p>基于默认装配的升级版，在默认装配基础上通过指定特殊参数完成特殊需求，未配置的参数将使用默认值</p> </blockquote> <h4 id="根据iconfiguration配置生成">根据IConfiguration配置生成</h4> <ol> <li>修改<code>appsettings.json</code></li> </ol> <pre><code class="language-appsettings.json">{   "DaprOptions": {     "AppId": "masa-dapr-test",     "AppPort": 5001,     "AppIdSuffix": "",     "DaprHttpPort": 8080,     "DaprGrpcPort": 8081   } }</code></pre> <ol start="2"> <li>修改<code>Program.cs</code></li> </ol> <pre><code class="language-csharp">builder.Services.AddDaprStarter(builder.Configuration.GetSection("DaprOptions"));</code></pre> <blockquote> <p>优势：更改appsettings.json配置后，dapr sidecar会自动更新，项目无需重启</p> </blockquote> <h2 id="masautilsdevelopmentdapraspnetcore的设计思路">Masa.Utils.Development.Dapr.AspNetCore的设计思路</h2> <p>设计思路基于两个方面，其一本机自动启动dapr sidecar还可以正常调试.Net项目，其二简化配置</p> <h3 id="技术选型">技术选型</h3> <p>我们有两种启动dapr sidecar的方式：</p> <ol> <li>dapr run</li> <li>daprd</li> </ol> <p>两者之间的差别如下所示：<img decoding="async" src="http://img.555519.xyz/uploads3/20220509/29c421ed27ed849cf38d5a4e08c8a263.jpg" alt="一行代码让你的项目轻松使用Dapr"></p> <blockquote> <p>完整的对比可查看：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/reference/arguments-annotations-overview/"  target="_blank" rel="nofollow">https://docs.dapr.io/reference/arguments-annotations-overview/</a></p> </blockquote> <p>通过对比我们发现，我们的目标使用daprd与Dapr CLI都可以实现，那为什么Masa.Utils.Development.Dapr选择的是Dapr CLI，而不是daprd呢？</p> <p>核心的原因是dapr可以通过dapr list命令很简单的就获取到当前运行的所有dapr程序，而daprd无法获取。如果使用daprd，那我们就需要使用C#代码通过操作dll获取具体执行的dapr命令，且多平台支持不好，所以暂时用了Dapr CLI</p> <h3 id="更优秀的dapr管理需要做到什么">更优秀的Dapr管理需要做到什么？</h3> <ul> <li>使用简单</li> <li>参数可配置</li> <li>功能支持选择性启动</li> <li>Dapr保活</li> <li>配置支持动态更新</li> </ul> <p>为了能更方便的使用，我们做了以下约定：</p> <ol> <li>针对dapr的非必填项，默认关闭不启用，手动配置参数后开启</li> <li>针对dapr的必填项: app-id、app-port、dapr-http-port、dapr-grpc-port 自动生成并配置</li> </ol> <h4 id="app-id-生成规则">app-id 生成规则</h4> <p>其中dapr的app-id默认生成规则为：<code>AppId + AppIdDelimiter + AppIdSuffix</code>，其中</p> <ul> <li>AppId默认：项目名.Replace(".","-")</li> <li>AppIdDelimiter默认：-</li> <li>AppIdSuffix默认：当前机器网卡地址</li> </ul> <p>当AppIdSuffix赋值为空字符串，dapr的AppId的生成规则为：<code>AppId</code></p> <h4 id="app-port-获取">app-port 获取</h4> <pre><code class="language-C#">private ushort GetAppPort(DaprOptions options) {   var server = _serviceProvider.GetRequiredService&lt;IServer&gt;();   var addresses = server.Features.Get&lt;IServerAddressesFeature&gt;()?.Addresses;   if (addresses is { IsReadOnly: false, Count: 0 })       throw new Exception("Failed to get the startup port, please specify the port manually");    return addresses!       .Select(address =&gt; new Uri(address))       .Where(address           =&gt; (options.EnableSsl is true &amp;&amp; address.Scheme.Equals(Uri.UriSchemeHttps, StringComparison.OrdinalIgnoreCase))           || address.Scheme.Equals(Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase))       .Select(address =&gt; (ushort)address.Port).FirstOrDefault(); }</code></pre> <blockquote> <p>为了防止启动过程中修改端口，过早的获取到被弃用的端口。因此我们使用后台任务启动dapr sidecar</p> </blockquote> <h4 id="dapr-http-portdapr-grpc-port获取">dapr-http-port、dapr-grpc-port获取</h4> <p>因为支持用户配置，所以我们遵循下面的顺序</p> <ol> <li> <p>如果指定端口，被占用则自动kill port所在进程，保证可以sidecar可以正常启动</p> <blockquote> <p>为什么端口占用就要先kill，复用不行吗？</p> <p>因为sidecar有初始化配置，程序调整的代码影响到sidecar配置变更我们无法检测，所以启动时保证是最新的是比较合适的选择</p> </blockquote> </li> <li> <p>如果未指定端口，则交还给dapr，通过Dapr CLI的规则生成对应的http-port或grpc-port</p> </li> </ol> <h4 id="dapr保活">Dapr保活</h4> <p>为了保证dapr进程是活跃的，我们在库中建立了一个心跳检查任务用来检测当前的dapr进程是否是活跃的，当dapr进程意外停止后会被重启，且配置信息与上一次成功的dapr配置保持不变</p> <blockquote> <p>如果不需要保活机制的话可以将EnableHeartBeat改为false，则不启用dapr保活机制</p> </blockquote> <h4 id="配置支持动态更新">配置支持动态更新</h4> <p>我们通过IOptionsMonitor<daproptions>的OnChange方法来监听配置的变更，当配置变更后我们会通过IDaprProcess 提供的Refresh方法来重启dapr进程，并重新调整环境变量信息</daproptions></p> <h2 id="本章源码">本章源码</h2> <p>Assignment03</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/zhenlei520/dapr-study-room"  target="_blank" rel="nofollow">https://github.com/zhenlei520/dapr-study-room</a></p> <h2 id="开源地址">开源地址</h2> <p>MASA.BuildingBlocks：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/masastack/MASA.BuildingBlocks"  target="_blank" rel="nofollow">https://github.com/masastack/MASA.BuildingBlocks</a></p> <p>MASA.Contrib：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/masastack/MASA.Contrib"  target="_blank" rel="nofollow">https://github.com/masastack/MASA.Contrib</a></p> <p>MASA.Utils：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/masastack/MASA.Utils"  target="_blank" rel="nofollow">https://github.com/masastack/MASA.Utils</a></p> <p>MASA.EShop：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/masalabs/MASA.EShop"  target="_blank" rel="nofollow">https://github.com/masalabs/MASA.EShop</a></p> <p>MASA.Blazor：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/BlazorComponent/MASA.Blazor"  target="_blank" rel="nofollow">https://github.com/BlazorComponent/MASA.Blazor</a></p> <p>如果你对我们的 MASA Framework 感兴趣，无论是代码贡献、使用、提 Issue，欢迎联系我们</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63429.htm">MySQL必知必会</a></p>
+                                        <p>下一个：<a href="/news/article-64058.htm">中国前十宠物粮公司排名 中国前十宠物粮公司排名榜</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-subscribe-node.htm" title="「2月9日」最高速度20.2M/S，2025年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐">「2月9日」最高速度20.2M/S，2025年Shadowrocket/SSR/V2ray/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24827.htm" title="os和os.path的常用方法">os和os.path的常用方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-subscribe-node.htm" title="「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐">「11月12日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR免费机场订阅节点链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-54822.htm" title="猫咪疫苗三针打完多久可以洗澡（猫三针疫苗后多久可以洗澡）">猫咪疫苗三针打完多久可以洗澡（猫三针疫苗后多久可以洗澡）</a></li>
+                        <li class="py-2"><a href="/news/article-22517.htm" title="动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）">动物疫苗种类及类型图片及价格表（动物疫苗种类及类型图片及价格表大全）</a></li>
+                        <li class="py-2"><a href="/news/article-20686.htm" title="成都宠物领养平台领养可靠吗现在怎么样（成都宠物领养网免费）">成都宠物领养平台领养可靠吗现在怎么样（成都宠物领养网免费）</a></li>
+                        <li class="py-2"><a href="/news/article-23450.htm" title="vue 的ESlint .eslintrc.js 文件 常用配置和注释">vue 的ESlint .eslintrc.js 文件 常用配置和注释</a></li>
+                        <li class="py-2"><a href="/news/article-44070.htm" title="Docker极简入门：使用Docker-Compose 运行网站浏览量统计Demo">Docker极简入门：使用Docker-Compose 运行网站浏览量统计Demo</a></li>
+                        <li class="py-2"><a href="/news/article-36630.htm" title="宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司">宠爱国际动物医疗机构 宠爱国际动物医疗机构有限公司</a></li>
+                        <li class="py-2"><a href="/news/article-34246.htm" title="动物打的疫苗多少钱一针啊（动物打的疫苗多少钱一针啊视频）">动物打的疫苗多少钱一针啊（动物打的疫苗多少钱一针啊视频）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
