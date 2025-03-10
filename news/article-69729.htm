@@ -1,0 +1,227 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-69729.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ElementUI el-upload 断点续传文件</title>
+        <meta name="description" content="官方的Upload 组件从文档和所有demo来看，均是选中文件直接上传，但是业务系统有大文件上传的需求，所以要用这个组件封装一个断点续传的功能。 从官方给出的文档看到有个http-request 覆盖" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-69729.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="ElementUI el-upload 断点续传文件" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/80cb2c35eef5c13911f190e1a3eedf4e.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:06:33" />
+    <meta property="og:updated_time" content="2025-03-08T05:06:33" />
+        <meta property="og:description" content="官方的Upload 组件从文档和所有demo来看，均是选中文件直接上传，但是业务系统有大文件上传的需求，所以要用这个组件封装一个断点续传的功能。 从官方给出的文档看到有个http-request 覆盖" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ElementUI el-upload 断点续传文件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>ElementUI el-upload 断点续传文件</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>官方的<code>Upload</code> 组件从文档和所有demo来看，均是选中文件直接上传，但是业务系统有大文件上传的需求，所以要用这个组件封装一个断点续传的功能。</p> <p>从官方给出的文档看到有个<code>http-request 覆盖默认的上传行为，可以自定义上传的实现</code> 似乎能满足要求，那就开撸。</p> <p>确定需求：最大支持2GB的任意文件上传，小于100M直接上传，大于100M的时候分块上传，并且要支持断点续传。</p> <p>我拿了官方的一个demo</p> <pre><code> &lt;el-upload       drag       multiple       :http-request="checkedFile"       action="/"     &gt;       &lt;i class="el-icon-upload"&gt;&lt;/i&gt;       &lt;div class="el-upload__text"&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;     &lt;/el-upload&gt;</code></pre> <p>可拖动上传，比较高大上一点。</p> <p><code>http-request</code> 方法定义之后，文件上传会先走这个方法，传入一个参数</p> <pre><code>options = { 	headers: this.headers, 	withCredentials: this.withCredentials, 	file: rawFile, 	data: this.data, 	filename: this.name, 	action: this.action, 	onProgress: e =&gt; { 	  this.onProgress(e, rawFile); 	}, 	onSuccess: res =&gt; { 	  this.onSuccess(res, rawFile); 	  delete this.reqs[uid]; 	}, 	onError: err =&gt; { 	  this.onError(err, rawFile); 	  delete this.reqs[uid]; 	} }</code></pre> <p>该参数就是组件的参数集合，同时，如果定义了这个方法，组件的<code>submit</code>方法就会被拦截掉（注意别在这个方法里面调用组件的<code>submit</code> 方法，会造成死循环），在这个方法里面我就可以搞我想搞的事情了。</p> <p>说一下要注意的：<br /> 使用这个断点续传方法一定要先和服务端协调好，看他们怎么处理的，比如我这里就是按照文件分块后按照序号和文件id等信息跟服务端建立联系，服务端从接收到第一块文件的请求开始就会检测该文件是否已经存在已接收的文件块，然后再返回续传的块的序号，最终再调用接口校验文件完不完整。</p> <p>如果使用<code>mock</code>来模拟接口的话，<code>onUploadProgress</code>是无效的，因为<code>mock</code>会重新声明一个<code>XMLHttpRequest</code>，不会继承<code>onUploadProgress</code>。</p> <p>以上，就是<code>el-upload</code>组件的大文件分块上传的改造方案，目前还很粗糙，甚至还没过测试，如有问题会持续更新</p> <p>20180726<br /> 看源码的时候发现<code>http-request</code> 这个传入的回调函数应该返回一个<code>Promise</code></p> <pre><code>  const req = this.httpRequest(options);   this.reqs[uid] = req;   if (req &amp;&amp; req.then) {     req.then(options.onSuccess, options.onError);   }</code></pre> <p>然后组件自己会做成功和错误的处理，但是我同时又注意到了组件是有删除文件的功能的，那我请求自己实现的话，这功能岂不是没法用？果然我一点X，立马报了一个<code>reqs[uid].abort is not a function</code> ，果然如此，我返回了一个最普通的<code>Promise</code>，当然没有<code>abort</code>方法了（是原生<code>XMLHttpRequest</code> 对象的方法）<br /> 我在返回的<code>Promise</code>动了一下手脚</p> <pre><code>const prom = new Promise((resolve, reject) =&gt; {}) prom.abort = () =&gt; {} return prom</code></pre> <p>这三句话的意思就：大爷我给您跪了，别报错……<br /> 接下来就在组件的钩子函数<code>before-remove</code>来处理删除文件的功能。<br /><code>axios</code>截断请求可以传入一个<code>cancelToken</code>的值来返回一个<code>cancel function</code>，这部分就在data里面添加一个请求队列的参数，再把文件id和相关请求的截断方法push进去就可以了，改造后的<code>postFile</code>方法如下</p> <pre><code> postFile (param, onProgress) {       const formData = new FormData()       for (let p in param) {         formData.append(p, param<div class="section-content"></p></div><p>)       }       const { requestCancelQueue } = this       const config = {         cancelToken: new axios.CancelToken(function executor (cancel) {           if (requestCancelQueue[param.uid]) {             requestCancelQueue[param.uid]()             delete requestCancelQueue[param.uid]           }           requestCancelQueue[param.uid] = cancel         }),         onUploadProgress: e =&gt; {           e.percent = Number(((e.loaded / e.total) * (1 / (param.chunks || 1)) * 100).toFixed(2))           onProgress(e)         }       }       return axios.post('/upload', formData, config).then(rs =&gt; rs.data.data)     }</code></pre> <p>然后<code>before-remove</code>钩子的处理就只需要调用就OK了</p> <pre><code>	removeFile (file) {       this.requestCancelQueue[file.uid]()       delete this.requestCancelQueue[file.uid]       return false     }</code></pre> <p>最后贴上完整的组件源码，直接拷贝粘贴可用（依赖element-ui、axios）</p> <pre><code>&lt;template&gt;   &lt;el-upload     drag     multiple     :auto-upload="true"     :http-request="checkedFile"     :before-remove="removeFile"     :limit="10"     action="/"   &gt;     &lt;i class="el-icon-upload"&gt;&lt;/i&gt;     &lt;div class="el-upload__text"&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;   &lt;/el-upload&gt; &lt;/template&gt; &lt;script&gt; import axios from 'axios' export default {   data () {     return {       maxSize: 5 * 1024 * 1024 * 1024, // 上传最大文件限制       multiUploadSize: 500 * 1024 * 1024, // 大于这个大小的文件使用分块上传(后端可以支持断点续传)       eachSize: 500 * 1024 * 1024, // 每块文件大小       requestCancelQueue: [], // 请求方法队列（调用取消上传     }   },   mounted () {   },   methods: {     async checkedFile (options) {       const { maxSize, multiUploadSize, getSize, splitUpload, singleUpload } = this       const { file, onProgress, onSuccess, onError } = options       if (file.size &gt; maxSize) {         return this.$message({           message: `您选择的文件大于${getSize(maxSize)}`,           type: 'error'         })       }       const uploadFunc = file.size &gt; multiUploadSize ? splitUpload : singleUpload       try {         await uploadFunc(file, onProgress)         this.$message({           message: '上传成功',           type: 'success'         })         onSuccess()       } catch (e) {         console.error(e)         this.$message({           message: e.message,           type: 'error'         })         onError()       }       const prom = new Promise((resolve, reject) =&gt; {})       prom.abort = () =&gt; {}       return prom     },     // 格式化文件大小显示文字     getSize (size) {       return size &gt; 1024         ? size / 1024 &gt; 1024           ? size / (1024 * 1024) &gt; 1024             ? (size / (1024 * 1024 * 1024)).toFixed(2) + 'GB'             : (size / (1024 * 1024)).toFixed(2) + 'MB'           : (size / 1024).toFixed(2) + 'KB'         : (size).toFixed(2) + 'B'     },     // 单文件直接上传     singleUpload (file, onProgress) {       return this.postFile({ file, uid: file.uid, fileName: file.fileName }, onProgress)     },     // 大文件分块上传     splitUpload (file, onProgress) {       return new Promise(async (resolve, reject) =&gt; {         try {           const { eachSize } = this           const chunks = Math.ceil(file.size / eachSize)           const fileChunks = await this.splitFile(file, eachSize, chunks)           let currentChunk = 0           for (let i = 0; i &lt; fileChunks.length; i++) {             // 服务端检测已经上传到第currentChunk块了，那就直接跳到第currentChunk块，实现断点续传             console.log(currentChunk, i)             if (Number(currentChunk) === i) {               // 每块上传完后则返回需要提交的下一块的index               currentChunk = await this.postFile({                 chunked: true,                 chunk: i,                 chunks,                 eachSize,                 fileName: file.name,                 fullSize: file.size,                 uid: file.uid,                 file: fileChunks[i]               }, onProgress)             }           }           const isValidate = await this.validateFile({             chunks: fileChunks.length,             fileName: file.name,             fullSize: file.size,             uid: file.uid           })           if (!isValidate) {             throw new Error('文件校验异常')           }           resolve()         } catch (e) {           reject(e)         }       })     },     // 文件分块,利用Array.prototype.slice方法     splitFile (file, eachSize, chunks) {       return new Promise((resolve, reject) =&gt; {         try {           setTimeout(() =&gt; {             const fileChunk = []             for (let chunk = 0; chunks &gt; 0; chunks--) {               fileChunk.push(file.slice(chunk, chunk + eachSize))               chunk += eachSize             }             resolve(fileChunk)           }, 0)         } catch (e) {           console.error(e)           reject(new Error('文件切块发生错误'))         }       })     },     removeFile (file) {       this.requestCancelQueue[file.uid]()       delete this.requestCancelQueue[file.uid]       return true     },     // 提交文件方法,将参数转换为FormData, 然后通过axios发起请求     postFile (param, onProgress) {       const formData = new FormData()       for (let p in param) {         formData.append(p, param<div class="section-content"></p></div><p>)       }       const { requestCancelQueue } = this       const config = {         cancelToken: new axios.CancelToken(function executor (cancel) {           if (requestCancelQueue[param.uid]) {             requestCancelQueue[param.uid]()             delete requestCancelQueue[param.uid]           }           requestCancelQueue[param.uid] = cancel         }),         onUploadProgress: e =&gt; {           if (param.chunked) {             e.percent = Number(((((param.chunk * (param.eachSize - 1)) + (e.loaded)) / param.fullSize) * 100).toFixed(2))           } else {             e.percent = Number(((e.loaded / e.total) * 100).toFixed(2))           }           onProgress(e)         }       }       return axios.post('http://localhost:8888', formData, config).then(rs =&gt; rs.data)     },     // 文件校验方法     validateFile (file) {       return axios.post('http://localhost:8888/validateFile', file).then(rs =&gt; rs.data)     }   } } &lt;/script&gt;</code></pre> <p>转载请注明出处蟹蟹</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69728.htm">vue项目中数据更新页面不刷新问题</a></p>
+                                        <p>下一个：<a href="/news/article-70360.htm">动物疫苗打到人身上有事吗会传染吗视频（动物打的疫苗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-46044.htm" title="详细解析Spring Boot结合Vue前后端分离项目打包部署步骤（搭配Nginx）">详细解析Spring Boot结合Vue前后端分离项目打包部署步骤（搭配Nginx）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-node-subscribe-links.htm" title="「2月3日」最高速度21.5M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐">「2月3日」最高速度21.5M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-66511.htm" title="T型插补C++实现">T型插补C++实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-node-share.htm" title="「1月18日」最高速度19.5M/S，2025年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐">「1月18日」最高速度19.5M/S，2025年Clash/Shadowrocket/SSR/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe.htm" title="「1月5日」最高速度20.7M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「1月5日」最高速度20.7M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-35581.htm" title="同安宠物救助（同安宠物领养中心）">同安宠物救助（同安宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-node-share-links.htm" title="「2月19日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「2月19日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-46045.htm" title="长沙市宠物领养中心地址查询（长沙宠物猫领养中心在哪）">长沙市宠物领养中心地址查询（长沙宠物猫领养中心在哪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-node-subscribe.htm" title="「3月10日」最高速度20.4M/S，2025年Clash/Shadowrocket/V2ray/SSR免费机场订阅链接地址，翻墙机场推荐">「3月10日」最高速度20.4M/S，2025年Clash/Shadowrocket/V2ray/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-70360.htm" title="动物疫苗打到人身上有事吗会传染吗视频（动物打的疫苗）">动物疫苗打到人身上有事吗会传染吗视频（动物打的疫苗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
