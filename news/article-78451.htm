@@ -1,0 +1,227 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-78451.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Python实现学生管理系统</title>
+        <meta name="description" content="学生管理系统 student_list={}defmenu():print("*"*30)print("欢迎访问学生管理系统")print("*"*30)print("********1:添加学生**" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-78451.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="Python实现学生管理系统" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/e2d6090348c270fd94e7b68bd1ca24a6.webp" />
+        <meta property="og:release_date" content="2025-03-21T10:31:25" />
+    <meta property="og:updated_time" content="2025-03-21T10:31:25" />
+        <meta property="og:description" content="学生管理系统 student_list={}defmenu():print("*"*30)print("欢迎访问学生管理系统")print("*"*30)print("********1:添加学生**" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python实现学生管理系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Python实现学生管理系统</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>学生管理系统</h2> <pre><code class="prism language-python">student_list<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token keyword">def</span><span class="token function">menu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎访问学生管理系统"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"********1:添加学生************"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"********2:删除学生************"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"********3:修改学生************"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"********4:显示学生信息********"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"********5:关闭学生管理系统****"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">add_student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的学号："</span><span class="token punctuation">)</span>     name<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的姓名："</span><span class="token punctuation">)</span>     sex<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的性别："</span><span class="token punctuation">)</span>     phone<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的联系方式："</span><span class="token punctuation">)</span>     student_info<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'name'</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span><span class="token string">'sex'</span><span class="token punctuation">:</span> sex<span class="token punctuation">,</span><span class="token string">'phone'</span><span class="token punctuation">:</span> phone<span class="token punctuation">}</span>     student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token operator">=</span> student_info<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"添加成功"</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">delete_student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要删除的学生学号："</span><span class="token punctuation">)</span><span class="token keyword">if</span><span class="token builtin">id</span><span class="token keyword">not</span><span class="token keyword">in</span> student_list<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未找到该学生"</span><span class="token punctuation">)</span>         delete_student<span class="token punctuation">(</span><span class="token punctuation">)</span>     student_list<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"您删除了该学生信息"</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">edit_student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要修改的学生学号："</span><span class="token punctuation">)</span><span class="token keyword">if</span><span class="token builtin">id</span><span class="token keyword">not</span><span class="token keyword">in</span> student_list<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未找到该学生！"</span><span class="token punctuation">)</span><span class="token keyword">return</span>     student_info<span class="token operator">=</span> student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"你当前修改学生的学号%s 姓名%s 性别%s 联系方式%s"</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">,</span>student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'phone'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"请输入要修改的内容编号"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"1:姓名"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2:性别"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"3:联系方式"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"4:全部信息"</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span>     edit_news<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入编号："</span><span class="token punctuation">)</span><span class="token keyword">if</span> edit_news<span class="token operator">==</span><span class="token string">"1"</span><span class="token punctuation">:</span>         newname<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的姓名："</span><span class="token punctuation">)</span>         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token operator">=</span> newname<span class="token keyword">elif</span> edit_news<span class="token operator">==</span><span class="token string">"2"</span><span class="token punctuation">:</span>         newsex<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的性别："</span><span class="token punctuation">)</span>         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token operator">=</span> newsex<span class="token keyword">elif</span> edit_news<span class="token operator">==</span><span class="token string">"3"</span><span class="token punctuation">:</span>         newphone<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生的联系方式："</span><span class="token punctuation">)</span>         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'phone'</span><span class="token punctuation">]</span><span class="token operator">=</span> newphone<span class="token keyword">elif</span> edit_news<span class="token operator">==</span><span class="token string">"4"</span><span class="token punctuation">:</span>         newname<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的学生姓名："</span><span class="token punctuation">)</span>         newsex<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生性别："</span><span class="token punctuation">)</span>         newphone<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入学生联系方式："</span><span class="token punctuation">)</span>         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token operator">=</span> newname         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token operator">=</span> newsex         student_list<span class="token punctuation">[</span><span class="token builtin">id</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'phone'</span><span class="token punctuation">]</span><span class="token operator">=</span> newphone<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"修改成功"</span><span class="token punctuation">)</span><span class="token keyword">else</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"输入有误"</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">show_student_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token operator">*</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token keyword">for</span><span class="token builtin">id</span><span class="token punctuation">,</span> value<span class="token keyword">in</span> student_list<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"学号：%s 姓名：%s 性别：%s 联系方式：%s"</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">,</span> value<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> value<span class="token punctuation">[</span><span class="token string">'sex'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> value<span class="token punctuation">[</span><span class="token string">'phone'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">while</span><span class="token boolean">True</span><span class="token punctuation">:</span>         menu<span class="token punctuation">(</span><span class="token punctuation">)</span>         user_input<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入你要选择操作的数字："</span><span class="token punctuation">)</span><span class="token keyword">if</span> user_input<span class="token operator">==</span><span class="token string">"1"</span><span class="token punctuation">:</span>             add_student<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">elif</span> user_input<span class="token operator">==</span><span class="token string">"2"</span><span class="token punctuation">:</span>             delete_student<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">elif</span> user_input<span class="token operator">==</span><span class="token string">"3"</span><span class="token punctuation">:</span>             edit_student<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">elif</span> user_input<span class="token operator">==</span><span class="token string">"4"</span><span class="token punctuation">:</span>             show_student_list<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">elif</span> user_input<span class="token operator">==</span><span class="token string">"5"</span><span class="token punctuation">:</span>             quit_menu<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请确认要退出系统吗？(yes or no):"</span><span class="token punctuation">)</span><span class="token keyword">if</span> quit_menu<span class="token operator">==</span><span class="token string">'yes'</span><span class="token punctuation">:</span><span class="token keyword">break</span><span class="token keyword">else</span><span class="token punctuation">:</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"你的输入有错误"</span><span class="token punctuation">)</span> main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77760.htm">有没有专门卖宠物用品的app（专门卖宠物用品的软件）</a></p>
+                                        <p>下一个：<a href="/news/article-78452.htm">加盟饲料加工厂（加盟饲料加工厂赚钱吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-64058.htm" title="中国前十宠物粮公司排名 中国前十宠物粮公司排名榜">中国前十宠物粮公司排名 中国前十宠物粮公司排名榜</a></li>
+                        <li class="py-2"><a href="/news/article-67786.htm" title="Vue Tabbar 的封装">Vue Tabbar 的封装</a></li>
+                        <li class="py-2"><a href="/news/article-46516.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/news/article-77082.htm" title="vue妙用ref父组件访问子组件中的值和调用子组件的方法">vue妙用ref父组件访问子组件中的值和调用子组件的方法</a></li>
+                        <li class="py-2"><a href="/news/article-37117.htm" title="丹阳市宠物店（丹阳宠物寄养）">丹阳市宠物店（丹阳宠物寄养）</a></li>
+                        <li class="py-2"><a href="/news/article-73025.htm" title="小型狗粮加工厂现在赚钱吗多少钱（狗粮加工厂视频）">小型狗粮加工厂现在赚钱吗多少钱（狗粮加工厂视频）</a></li>
+                        <li class="py-2"><a href="/news/article-62241.htm" title="卖兽用疫苗犯法不（销售兽用疫苗处罚规定）">卖兽用疫苗犯法不（销售兽用疫苗处罚规定）</a></li>
+                        <li class="py-2"><a href="/news/article-44069.htm" title="使用Nginx实现多个Tomcat负载均衡">使用Nginx实现多个Tomcat负载均衡</a></li>
+                        <li class="py-2"><a href="/news/article-61649.htm" title="上班摸鱼与网络安全">上班摸鱼与网络安全</a></li>
+                        <li class="py-2"><a href="/news/article-60462.htm" title="Docker基础DockerFile文件详解">Docker基础DockerFile文件详解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
