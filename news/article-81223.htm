@@ -1,0 +1,227 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-81223.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>js(JavaScript)代码实现的TAB标签切换效果</title>
+        <meta name="description" content="一个可以js（JavaScript）的tab标签切换代码，可以自动适应宽度，可以自己添加删除标签块，傻瓜式操作便能完成！     &lt;!DOCTYPE HTML PUBLIC "-//W3C//D" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-81223.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="js(JavaScript)代码实现的TAB标签切换效果" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/0f316669b8ba1737c2c82cf3cb18a289.webp" />
+        <meta property="og:release_date" content="2025-03-25T08:19:36" />
+    <meta property="og:updated_time" content="2025-03-25T08:19:36" />
+        <meta property="og:description" content="一个可以js（JavaScript）的tab标签切换代码，可以自动适应宽度，可以自己添加删除标签块，傻瓜式操作便能完成！     &lt;!DOCTYPE HTML PUBLIC "-//W3C//D" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="js(JavaScript)代码实现的TAB标签切换效果">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>js(JavaScript)代码实现的TAB标签切换效果</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一个可以js（JavaScript）的tab标签切换代码，可以自动适应宽度，可以自己添加删除标签块，傻瓜式操作便能完成！</p> <p></p> <p><img decoding="async" src="0" alt=""/></p> <p></p> <pre><code class="language-html"> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-  19991224/loose.dtd"&gt; &lt;HTML xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;HEAD&gt; &lt;meta name="keywords" content="JS代码,TAB标签,JS广告代码,JS特效代码,阅微草堂" /&gt; &lt;title&gt;自适应宽度的标签导航&lt;/title&gt; &lt;META http-equiv=Content-Type content="text/html; charset=gb2312"&gt;   &lt;STYLE type=text/css&gt; BODY {FONT-SIZE: 14px; FONT-FAMILY: "宋体"} OL LI { MARGIN: 8px} #con { FONT-SIZE: 12px; MARGIN: 0px auto; WIDTH: 600px} #tags { PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 10px; WIDTH: 400px; PADDING-  TOP: 0px; HEIGHT: 23px} #tags LI {BACKGROUND: url(images/tagleft.gif) no-repeat left bottom; FLOAT: left; MARGIN-RIGHT: 1px; LIST-STYLE-TYPE:  none; HEIGHT: 23px} #tags LI A {PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(images/tagright.gif) no-repeat right bottom;  FLOAT: left; PADDING-BOTTOM: 0px; COLOR: #999; LINE-HEIGHT: 23px; PADDING-TOP: 0px; HEIGHT: 23px; TEXT-DECORATION:  none} #tags LI.emptyTag {BACKGROUND: none transparent scroll repeat 0% 0%; WIDTH: 4px} #tags LI.selectTag {BACKGROUND-POSITION: left top; MARGIN-BOTTOM: -2px; POSITION: relative; HEIGHT: 25px} #tags LI.selectTag A {BACKGROUND-POSITION: right top; COLOR: #000; LINE-HEIGHT: 25px; HEIGHT: 25px} #tagContent { PADDING-RIGHT: 1px; BORDER: #aecbd4 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px;  PADDING-TOP:  1px;  BACKGROUND-COLOR: #fff} .tagContent {PADDING-RIGHT: 10px; DISPLAY: none; PADDING-LEFT: 10px; BACKGROUND: url(images/bg.gif) repeat-x;  PADDING-BOTTOM: 10px; WIDTH: 576px; COLOR: #474747; PADDING-TOP: 10px; HEIGHT: 250px} #tagContent DIV.selectTag {DISPLAY: block} &lt;/STYLE&gt;  &lt;META content="MSHTML 6.00.2800.1589" name=GENERATOR&gt;&lt;/HEAD&gt; &lt;BODY&gt; &lt;DIV id=con&gt; &lt;UL id=tags&gt;   &lt;LI class=selectTag&gt;&lt;A onMouseover="selectTag('tagContent0',this)" href="javascript:void(0)"&gt;标签一&lt;/A&gt; &lt;/LI&gt;   &lt;LI&gt;&lt;A onMouseover="selectTag('tagContent1',this)" href="javascript:void(0)"&gt;标签二&lt;/A&gt; &lt;/LI&gt;   &lt;LI&gt;&lt;A onMouseover="selectTag('tagContent2',this)" href="javascript:void(0)"&gt;自适应宽度的标签&lt;/A&gt; &lt;/LI&gt;   &lt;LI&gt;&lt;A onMouseover="selectTag('tagContent3',this)" href="javascript:void(0)"&gt;自适应宽度&lt;/A&gt; &lt;/LI&gt; &lt;/UL&gt; &lt;DIV id=tagContent&gt; &lt;DIV class=tagContent id=tagContent0&gt;第一个标签的内容&lt;/DIV&gt; &lt;DIV class="tagContent selectTag" id=tagContent1&gt;第二个标签的内容&lt;/DIV&gt; &lt;DIV class=tagContent id=tagContent2&gt;第三个标签的内容&lt;/DIV&gt; &lt;DIV class=tagContent id=tagContent3&gt;第四个标签的内容&lt;/DIV&gt; &lt;/DIV&gt; &lt;/DIV&gt;    &lt;SCRIPT type=text/javascript&gt; function selectTag(showContent,selfObj){  // 操作标签  var tag = document.getElementById("tags").getElementsByTagName("li");  var taglength = tag.length;  for(i=0; i&lt;taglength; i++){   tag[i].className = "";  }  selfObj.parentNode.className = "selectTag";  // 操作内容  for(i=0; j=document.getElementById("tagContent"+i); i++){   j.style.display = "none";  }  document.getElementById(showContent).style.display = "block";     } &lt;/SCRIPT&gt;  &lt;/BODY&gt;&lt;/HTML&gt;</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-80489.htm">宠物领养系统论文研究方向如何填写（宠物领养项目计划书）</a></p>
+                                        <p>下一个：<a href="/news/article-81224.htm">狗粮厂家批发中心电话（狗粮厂家批发中心电话多少）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53191.htm" title="全国十强兽药厂家直销店（全国十强兽药厂家直销店名单）">全国十强兽药厂家直销店（全国十强兽药厂家直销店名单）</a></li>
+                        <li class="py-2"><a href="/news/article-64660.htm" title="瑞鹏宠物中心医院在哪里啊（瑞鹏宠物医院总院电话）">瑞鹏宠物中心医院在哪里啊（瑞鹏宠物医院总院电话）</a></li>
+                        <li class="py-2"><a href="/news/article-41081.htm" title="动物疫病预防控制中心可以打狂犬疫苗吗 动物疫病预防控制中心可以打狂犬疫苗吗">动物疫病预防控制中心可以打狂犬疫苗吗 动物疫病预防控制中心可以打狂犬疫苗吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="「3月4日」最高速度19.9M/S，2025年Clash/SSR/Shadowrocket/V2ray免费机场订阅链接地址，翻墙机场推荐">「3月4日」最高速度19.9M/S，2025年Clash/SSR/Shadowrocket/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-43552.htm" title="宠物粮食怎么购买的（宠物粮从哪里进货便宜）">宠物粮食怎么购买的（宠物粮从哪里进货便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-75709.htm" title="农大动物医院哪个医生好 农大动物医院哪个医生好点">农大动物医院哪个医生好 农大动物医院哪个医生好点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-node-share-links.htm" title="「2月19日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「2月19日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-46516.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/news/article-53719.htm" title="动物疫苗价格查询官网入口网址是多少 动物疫苗价格查询官网入口网址是多少啊">动物疫苗价格查询官网入口网址是多少 动物疫苗价格查询官网入口网址是多少啊</a></li>
+                        <li class="py-2"><a href="/news/article-48388.htm" title="宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）">宠物品牌大全排行榜图片下载（宠物品牌大全排行榜图片下载软件）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
