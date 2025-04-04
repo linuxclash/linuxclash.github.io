@@ -1,0 +1,226 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-87590.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>C#/VB.NET 获取Excel中图片所在的行、列坐标位置</title>
+        <meta name="description" content="本文以C#和vb.net代码示例展示如何来获取Excel工作表中图片的坐标位置。这里的坐标位置是指图片左上角顶点所在的单元格行和列位置，横坐标即顶点所在的第几列、纵坐标即顶点所在的第几行。下面是获取图" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-87590.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="C#/VB.NET 获取Excel中图片所在的行、列坐标位置" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/59a4b6beb392d98b6c3fb14dc7e16a7d.webp" />
+        <meta property="og:release_date" content="2025-04-03T08:33:09" />
+    <meta property="og:updated_time" content="2025-04-03T08:33:09" />
+        <meta property="og:description" content="本文以C#和vb.net代码示例展示如何来获取Excel工作表中图片的坐标位置。这里的坐标位置是指图片左上角顶点所在的单元格行和列位置，横坐标即顶点所在的第几列、纵坐标即顶点所在的第几行。下面是获取图" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C#/VB.NET 获取Excel中图片所在的行、列坐标位置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>C#/VB.NET 获取Excel中图片所在的行、列坐标位置</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>本文以C#和vb.net代码示例展示如何来获取Excel工作表中图片的坐标位置。这里的坐标位置是指图片左上角顶点所在的单元格行和列位置，横坐标即顶点所在的第几列、纵坐标即顶点所在的第几行。下面是获取图片位置的详细方法及步骤。</p> </h1> <p>按照如下方法来引用Spire.Xls.dll 版本：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.e-iceblue.cn/Downloads/Free-Spire-XLS-NET.html"  rel="nofollow">12.2</a></p> <p><span style="background-color: rgba(153, 204, 0, 1)">方法1</span>：将<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.e-iceblue.cn/Introduce/Free-Spire-XLS-NET.html"  rel="nofollow">Free Spire.XLS for .NET</a>&nbsp;包下载到本地，解压，安装到指定路径。完成安装后，在安装路径下找到BIN文件夹下的Spire.Xls.dll文件；然后在Visual Studio 中打开“解决方案资源管理器”，点击“引用”，“添加引用”，将安装路径下的dll文件引入VS程序。</p> <p><span style="background-color: rgba(153, 204, 255, 1)">方法2</span>：通过<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nuget.org/packages/FreeSpire.XLS/"  rel="nofollow">NuGet</a>&nbsp;安装。在Visual Studio 中打开“解决方案资源管理器”，点击“管理NuGet包”，搜索“Free Spire.XLS”,点击安装。</p> <p>或者通过PM控制台安装：<span style="color: rgba(153, 51, 0, 1)">Install-Package FreeSpire.XLS -Version 12.2.0</span></p> </h1> <p>下面是详细步骤：</p> <ul> <li>创建<strong>Workbook</strong>类的对象。</li> <li>调用<strong>Workbook.LoadFromFile(string fileName)</strong>方法加载Excel文件。</li> <li>通过<strong>Workbook.Worksheets[int]</strong>属性获取指定工作表。</li> <li>通过<strong>Worksheet.Pictures[int]</strong>获取指定图片。</li> <li>通过<strong>ExcelPicture.TopRow</strong>属性和<strong>ExcelPicture.LeftColumn</strong>属性获取图片所在行、列位置。</li> <li>最后，通过<strong>System.Console.Write()</strong>及<strong>System.Console.ReadLine()</strong>方法输出获取的结果。</li> </ul> <p>以下是完成代码，供参考：</p> <p><strong>C#</strong></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Spire.Xls;</span><span style="color: rgba(0, 0, 255, 1)">namespace</span><span style="color: rgba(0, 0, 0, 1)"> GetImgLocation {</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program     {</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span> Main(<span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">[] args)         {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">加载测试文档</span>             Workbook wb =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Workbook();             wb.LoadFromFile(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">test.xlsx</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取第2个工作表</span>             Worksheet sheet = wb.Worksheets[<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">];</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取工作表中的第一张图片</span>             ExcelPicture picture = sheet.Pictures[<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">];</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取图片所在行、列位置</span><span style="color: rgba(0, 0, 255, 1)">string</span> row =<span style="color: rgba(0, 0, 0, 1)"> picture.TopRow.ToString();</span><span style="color: rgba(0, 0, 255, 1)">string</span> column =<span style="color: rgba(0, 0, 0, 1)"> picture.LeftColumn.ToString();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出获取结果</span>             System.Console.Write(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">location:(</span><span style="color: rgba(128, 0, 0, 1)">"</span> + row +<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">，</span><span style="color: rgba(128, 0, 0, 1)">"</span> + column +<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">)</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);             System.Console.ReadLine();         }     } }</span></pre> </div> <p>vb.net</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">Imports</span><span style="color: rgba(0, 0, 0, 1)"> Spire.Xls</span><span style="color: rgba(0, 0, 255, 1)">Namespace</span><span style="color: rgba(0, 0, 0, 1)"> GetImgLocation</span><span style="color: rgba(0, 0, 255, 1)">Class</span><span style="color: rgba(0, 0, 0, 1)"> Program</span><span style="color: rgba(0, 0, 255, 1)">Private</span><span style="color: rgba(0, 0, 255, 1)">Shared</span><span style="color: rgba(0, 0, 255, 1)">Sub</span> Main(args<span style="color: rgba(0, 0, 255, 1)">As</span><span style="color: rgba(0, 0, 255, 1)">String</span><span style="color: rgba(0, 0, 0, 1)">())</span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">加载测试文档</span><span style="color: rgba(0, 0, 255, 1)">Dim</span> wb<span style="color: rgba(0, 0, 255, 1)">As</span><span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> Workbook()             wb.LoadFromFile(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">test.xlsx</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">获取第2个工作表</span><span style="color: rgba(0, 0, 255, 1)">Dim</span> sheet<span style="color: rgba(0, 0, 255, 1)">As</span> Worksheet = wb.Worksheets(<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">获取工作表中的第一张图片</span><span style="color: rgba(0, 0, 255, 1)">Dim</span> picture<span style="color: rgba(0, 0, 255, 1)">As</span> ExcelPicture = sheet.Pictures(<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">获取图片所在行、列位置</span><span style="color: rgba(0, 0, 255, 1)">Dim</span> row<span style="color: rgba(0, 0, 255, 1)">As</span><span style="color: rgba(0, 0, 255, 1)">String</span> =<span style="color: rgba(0, 0, 0, 1)"> picture.TopRow.ToString()</span><span style="color: rgba(0, 0, 255, 1)">Dim</span> column<span style="color: rgba(0, 0, 255, 1)">As</span><span style="color: rgba(0, 0, 255, 1)">String</span> =<span style="color: rgba(0, 0, 0, 1)"> picture.LeftColumn.ToString()</span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">输出获取结果</span>             System.Console.Write((Convert.ToString((Convert.ToString(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">location:(</span><span style="color: rgba(128, 0, 0, 1)">"</span>) &amp; row) +<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">，</span><span style="color: rgba(128, 0, 0, 1)">"</span>) &amp; column) +<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">)</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)             System.Console.ReadLine()</span><span style="color: rgba(0, 0, 255, 1)">End Sub</span><span style="color: rgba(0, 0, 255, 1)">End Class</span><span style="color: rgba(0, 0, 255, 1)">End Namespace</span></pre> </div> <p>读取结果如图，图片所在位置为第八行、第四列：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d83ef090dfce848dc7a05827bb48bc18.jpg" alt="C#/VB.NET 获取Excel中图片所在的行、列坐标位置"></p> <p>—END—</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-86880.htm">猫打疫苗要打几针多少钱（猫打疫苗要多少钱?）</a></p>
+                                        <p>下一个：<a href="/news/article-87591.htm">在我所在的城市有一家宠物医院用英语怎么说写（在我所在的城市有一家宠物医院英文）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-82584.htm" title="宠物粮生产机器设备厂家 宠物粮生产机器设备厂家排名">宠物粮生产机器设备厂家 宠物粮生产机器设备厂家排名</a></li>
+                        <li class="py-2"><a href="/news/article-74353.htm" title="济南宠物领养救助中心地址（济南宠物领养救助中心地址查询）">济南宠物领养救助中心地址（济南宠物领养救助中心地址查询）</a></li>
+                        <li class="py-2"><a href="/news/article-69071.htm" title="python学习分享之垃圾回收-缓存机制">python学习分享之垃圾回收-缓存机制</a></li>
+                        <li class="py-2"><a href="/news/article-67135.htm" title="动物园可以带宠物狗进去吗（东营动物园能带宠物狗进去吗）">动物园可以带宠物狗进去吗（东营动物园能带宠物狗进去吗）</a></li>
+                        <li class="py-2"><a href="/news/article-81223.htm" title="js(JavaScript)代码实现的TAB标签切换效果">js(JavaScript)代码实现的TAB标签切换效果</a></li>
+                        <li class="py-2"><a href="/news/article-72356.htm" title="动物防疫疫苗与接种的关系是什么（动物疫苗的重要性）">动物防疫疫苗与接种的关系是什么（动物疫苗的重要性）</a></li>
+                        <li class="py-2"><a href="/news/article-80488.htm" title="狗粮加工厂赚钱吗知乎推荐（狗粮 加工）">狗粮加工厂赚钱吗知乎推荐（狗粮 加工）</a></li>
+                        <li class="py-2"><a href="/news/article-86880.htm" title="猫打疫苗要打几针多少钱（猫打疫苗要多少钱?）">猫打疫苗要打几针多少钱（猫打疫苗要多少钱?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-high-speed-nodes.htm" title="「4月3日」最高速度20.5M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「4月3日」最高速度20.5M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-node-share-links.htm" title="「3月17日」最高速度19.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「3月17日」最高速度19.6M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
