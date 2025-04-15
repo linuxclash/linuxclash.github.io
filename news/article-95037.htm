@@ -1,0 +1,226 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-95037.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>redis之发布与订阅(publish/subscribe模式)</title>
+        <meta name="description" content="发布与订阅（publish/subscribe）模式，简称为pub/sub模式，redis也实现了这种模式。     命令 用例和描述     subscribe subscribe channel " />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-95037.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="redis之发布与订阅(publish/subscribe模式)" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/1b467bb0ff0b6eede4b9483613de8115.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:19:21" />
+    <meta property="og:updated_time" content="2025-04-13T07:19:21" />
+        <meta property="og:description" content="发布与订阅（publish/subscribe）模式，简称为pub/sub模式，redis也实现了这种模式。     命令 用例和描述     subscribe subscribe channel " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="redis之发布与订阅(publish/subscribe模式)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>redis之发布与订阅(publish/subscribe模式)</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><em>发布与订阅（publish/subscribe）模式，简称为pub/sub模式，redis也实现了这种模式。</em></p> </h1> <table> <thead> <tr> <th>命令</th> <th>用例和描述</th> </tr> </thead> <tbody> <tr> <td>subscribe</td> <td>subscribe channel [channel …] 订阅一个或多个频道</td> </tr> <tr> <td>unsubscribe</td> <td>unsubscribe [channel [channel …]] 退订频道，如果没有指定频道，则退订所有的频道</td> </tr> <tr> <td>publish</td> <td>publish channel message 给指定的频道发消息</td> </tr> <tr> <td>psubscribe</td> <td>psubscribe pattern [pattern …] 订阅给定模式相匹配的所有频道</td> </tr> <tr> <td>punsubscribe</td> <td>punsubscribe [pattern [pattern …]] 退订给定的模式，如果没有指定模式，则退订所有模式</td> </tr> </tbody> </table> <h2 id="实例">实例</h2> <p>一个客户端订阅test-channel <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/9ac09b3f86d733b7850b72370db6a5be.jpg" alt="redis之发布与订阅(publish/subscribe模式)"><br /> 一个客户端向test-channel发消息 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230112/394f67daab9543c3de4bf0243cc644d6.jpg" alt="redis之发布与订阅(publish/subscribe模式)"></p> </h1> <p>所有pub/sub很有用，但是redis的实现有这么几个问题： <br /> 1，如果一个客户端订阅了频道，但自己读取消息的速度却不够快的话，那么不断积压的消息会使redis输出缓冲区的体积变得越来越大，这可能使得redis本身的速度变慢，甚至直接崩溃。 <br /> 2，这和数据传输可靠性有关，如果在订阅方断线，那么他将会丢失所有在短线期间发布者发布的消息，这个让绝不多数人都很失望吧。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94002.htm">领养宠物范本（宠物领养表格）</a></p>
+                                        <p>下一个：<a href="/news/article-95038.htm">什么是Python高阶函数</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-high-speed-nodes.htm" title="「4月3日」最高速度20.5M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「4月3日」最高速度20.5M/S，2025年V2ray/SSR/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-high-speed-nodes.htm" title="「4月9日」最高速度21.9M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐">「4月9日」最高速度21.9M/S，2025年SSR/V2ray/Shadowrocket/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-71049.htm" title="布偶猫很少有人养（布偶不好养吗）">布偶猫很少有人养（布偶不好养吗）</a></li>
+                        <li class="py-2"><a href="/news/article-71696.htm" title="附近宠物领养基地地址（附近的领养宠物店）">附近宠物领养基地地址（附近的领养宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-90525.htm" title="mybatis的的代理开发">mybatis的的代理开发</a></li>
+                        <li class="py-2"><a href="/news/article-74352.htm" title="动物疫苗运输注意事项及要求是什么（动物疫苗接种的注意事项包括有哪些内容）">动物疫苗运输注意事项及要求是什么（动物疫苗接种的注意事项包括有哪些内容）</a></li>
+                        <li class="py-2"><a href="/news/article-85446.htm" title="仓鼠皮癣会传染人吗（仓鼠皮肤病辨别图片）">仓鼠皮癣会传染人吗（仓鼠皮肤病辨别图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-node-subscribe.htm" title="「4月11日」最高速度18.2M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐">「4月11日」最高速度18.2M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-subscribe-node.htm" title="「3月16日」最高速度19.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐">「3月16日」最高速度19.3M/S，2025年V2ray/Shadowrocket/Clash/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-86174.htm" title="宠物店每个月利润（宠物店每个月利润多少）">宠物店每个月利润（宠物店每个月利润多少）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
