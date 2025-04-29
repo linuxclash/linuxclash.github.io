@@ -1,0 +1,229 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://linuxclash.github.io/news/article-105536.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>什么是Java 9中的Project Jigsaw</title>
+        <meta name="description" content="Jigsaw项目的主要目标是引入模块化概念，以Java 9创建模块，然后将其应用于JDK。 以下是模块化（拼图）的一些好处   强大的封装能力：这些模块只能访问那些可以使用的部件。除非将包显式导出到&" />
+        <link rel="icon" href="/assets/website/img/linuxclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="LinuxClash免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://linuxclash.github.io/news/article-105536.htm" />
+    <meta property="og:site_name" content="LinuxClash免费节点官网" />
+    <meta property="og:title" content="什么是Java 9中的Project Jigsaw" />
+    <meta property="og:image" content="https://linuxclash.github.io/uploads/20240811/d9e85d68da51c2f34fc3b6400f42e1b2.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:29:23" />
+    <meta property="og:updated_time" content="2025-04-27T08:29:23" />
+        <meta property="og:description" content="Jigsaw项目的主要目标是引入模块化概念，以Java 9创建模块，然后将其应用于JDK。 以下是模块化（拼图）的一些好处   强大的封装能力：这些模块只能访问那些可以使用的部件。除非将包显式导出到&" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="什么是Java 9中的Project Jigsaw">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/owl.carousel.min.css">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/themify-icons.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/flaticon.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="/assets/website/css/linuxclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LVDH0E2G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5LVDH0E2G1');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!--::header part start::-->
+    <header class="main_menu ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-xl-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                                                <span>LinuxClash</span>
+                                                </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/">首页</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/client.htm">客户端</a>
+                                </li>
+                                                                <li class="nav-item">
+                                    <a class="nav-link" href="/news/">新闻资讯</a>
+                                </li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!--::breadcrumb part start::-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>什么是Java 9中的Project Jigsaw</h2>
+                            <p><a href="/">首页</a> <span>-</span> <a href="/news/">新闻资讯</a> <span>-</span> 正文</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::breadcrumb part start::-->
+    <!-- about part start-->
+    <section class="about_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p><strong>Jigsaw</strong><strong>项目</strong>的主要目标是引入<strong>模块化</strong>概念，以Java 9创建模块，然后将其应用于<strong>JDK</strong>。</p> <p>以下是<strong>模块化</strong>（<strong>拼图</strong>）的一些好处</p> <ul class="list-paddingleft-2"> <li> <p><strong>强大的封装能力：</strong>这些模块只能访问那些可以使用的部件。除非将包显式导出到<strong>&nbsp;module-info.java</strong>文件中，否则包中的公共类不能是公共的。</p> </li> <li> <p><strong>明确的依赖关系：</strong>一个模块必须声明有关通过必需子句使用的其他模块的信息。组合模块以创建较短的运行时间，可以将其轻松扩展到相对较小的计算设备。</p> </li> <li> <p><strong>可靠：</strong>消除<strong>运行时错误后</strong>，该应用程序将变得更加可靠。例如，我们必须注意到，由于缺少导致<strong>ClassNotFoundException的</strong>类，我们的应用程序在运行时会失败。</p> </li> </ul> <p></p> <p>以下是作为<strong>Jigsaw</strong>项目一部分的各种<strong>JEP</strong>（JDK增强建议）<strong></strong></p> <p><strong>JEP 200</strong> –<strong>模块化JDK：</strong>它利用Java平台模块系统（<strong>JPMS</strong>）将JDK模块化为一组在构建时，编译时或运行时结合在一起的模块。</p> <p><strong>JEP 201</strong> –<strong>模块化源代码</strong>：它将JDK的源代码模块化为模块，并升级内置工具以编译模块。</p> <p><strong>JEP 220</strong> –<strong>模块化运行时映像</strong>：它有助于重组JRE和JDK运行时映像，以容纳用于提高<strong>安全性</strong>，<strong>性能</strong>和<strong>可维护性的</strong>模块&nbsp;。</p> <p><strong>JEP 260 –封装了大多数内部API：</strong>它允许直接访问或通过反射访问大多数内部API。访问将要更改的内部API的风险很大。为防止使用此功能，将其压缩到<strong>模块中，</strong>并且只有那些内部API可供使用。</p> <p><strong>JEP 261 –模块系统：</strong>它负责通过更改JVM，Java编程语言和其他标准API来实现模块系统Java规范。</p> <p><strong>JEP 282-Jlink，Java链接器：</strong>它允许将模块及其依赖性打包到较小的运行时中。</p> <div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104846.htm">新疆宠物店被罚（新疆宠物领养中心）</a></p>
+                                        <p>下一个：<a href="/news/article-105538.htm">兽医资格证水生生物（水生生物兽医资格证报名2020年）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-79120.htm" title="动物疫苗批号查询平台 动物疫苗批号查询平台官网">动物疫苗批号查询平台 动物疫苗批号查询平台官网</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-free-node-subscribe.htm" title="「4月23日」最高速度20.9M/S，2025年V2ray/Clash/SSR/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「4月23日」最高速度20.9M/S，2025年V2ray/Clash/SSR/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-18-free-node-subscribe.htm" title="「4月18日」最高速度21.6M/S，2025年V2ray/Shadowrocket/SSR/Clash免费机场订阅链接地址，翻墙机场推荐">「4月18日」最高速度21.6M/S，2025年V2ray/Shadowrocket/SSR/Clash免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-73683.htm" title="私人手写的离婚协议有法律效力吗怎么写（自己手写的离婚协议有法律效力吗）">私人手写的离婚协议有法律效力吗怎么写（自己手写的离婚协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-node-subscribe.htm" title="「4月11日」最高速度18.2M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐">「4月11日」最高速度18.2M/S，2025年V2ray/Clash/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-99446.htm" title="和田宠物批发市场在哪里呀（和田市宠物市场）">和田宠物批发市场在哪里呀（和田市宠物市场）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-node-share-links.htm" title="「4月24日」最高速度22.3M/S，2025年Clash/V2ray/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐">「4月24日」最高速度22.3M/S，2025年Clash/V2ray/Shadowrocket/SSR免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-node-share-links.htm" title="「4月2日」最高速度22.4M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐">「4月2日」最高速度22.4M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-68426.htm" title="json字符串转java实体类及属性对应中的猫腻详解">json字符串转java实体类及属性对应中的猫腻详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-node-share-links.htm" title="「3月6日」最高速度22.9M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐">「3月6日」最高速度22.9M/S，2025年SSR/Shadowrocket/Clash/V2ray免费机场订阅链接地址，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">85</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- about part start-->
+    <footer class="copyright_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    LinuxClash免费节点官网 版权所有 Powered by WordPress
+                </p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"> <i class="ti-twitter"></i> </a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="/assets/website/js/frontend/linuxclash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/linuxclash/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="/assets/website/js/frontend/linuxclash/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/masonry.pkgd.js"></script>
+    <!-- particles js -->
+    <script src="/assets/website/js/frontend/linuxclash/owl.carousel.min.js"></script>
+    <!-- swiper js -->
+    <script src="/assets/website/js/frontend/linuxclash/slick.min.js"></script>
+    <!-- custom js -->
+    <script src="/assets/website/js/frontend/linuxclash/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
