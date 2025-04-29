@@ -1,4 +1,4 @@
-# 「4月29日」最高速度20.5M/S，2025年Shadowrocket/V2ray/SSR/Clash免费机场订阅链接地址，翻墙机场推荐  更新时间 2025-04-29 08:28:36
+# 「4月29日」最高速度20.2M/S，2025年Clash/SSR/V2ray/Shadowrocket免费机场订阅链接地址，翻墙机场推荐  更新时间 2025-04-29 16:15:07
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://linuxclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
