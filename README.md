@@ -1,4 +1,4 @@
-# 「7月23日」最高速度22.4M/S，2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐  更新时间 2026-07-23 09:55:08
+# 「7月30日」最高速度18.3M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点免费机场订阅链接地址，翻墙机场推荐  更新时间 2026-07-30 10:06:17
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://linuxclash.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://linuxclash.github.io/uploads/2026/07/0-20260723.yaml
-- https://linuxclash.github.io/uploads/2026/07/1-20260723.yaml
-- https://linuxclash.github.io/uploads/2026/07/2-20260723.yaml
-- https://linuxclash.github.io/uploads/2026/07/3-20260723.yaml
-- https://linuxclash.github.io/uploads/2026/07/4-20260723.yaml
+- https://linuxclash.github.io/uploads/2026/07/0-20260730.yaml
+- https://linuxclash.github.io/uploads/2026/07/1-20260730.yaml
+- https://linuxclash.github.io/uploads/2026/07/2-20260730.yaml
+- https://linuxclash.github.io/uploads/2026/07/3-20260730.yaml
+- https://linuxclash.github.io/uploads/2026/07/4-20260730.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://linuxclash.github.io/uploads/2026/07/0-20260723.txt
-- https://linuxclash.github.io/uploads/2026/07/1-20260723.txt
-- https://linuxclash.github.io/uploads/2026/07/2-20260723.txt
-- https://linuxclash.github.io/uploads/2026/07/3-20260723.txt
-- https://linuxclash.github.io/uploads/2026/07/4-20260723.txt
+- https://linuxclash.github.io/uploads/2026/07/0-20260730.txt
+- https://linuxclash.github.io/uploads/2026/07/1-20260730.txt
+- https://linuxclash.github.io/uploads/2026/07/2-20260730.txt
+- https://linuxclash.github.io/uploads/2026/07/3-20260730.txt
+- https://linuxclash.github.io/uploads/2026/07/4-20260730.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://linuxclash.github.io/uploads/2026/07/20260723.json
+- https://linuxclash.github.io/uploads/2026/07/20260730.json
 
 ## 更多Clash节点订阅 ：
 
