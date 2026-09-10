@@ -320,14 +320,9 @@ A：完全支持，Clash具备稳定的蓝牙连接能力，且支持蓝牙5.0�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
     <div class="panel-body">
-        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何实现分应用代理？</h5></div>
-    <div class="panel-body">
-        Clash 可通过策略组和规则文件按应用分流，将特定应用的流量转发到指定节点。例如游戏走低延迟节点，网页浏览走普通节点，实现高效分流和优化网络速度。<hr />    </div>
+        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何按端口分流不同类型流量？</h5></div>
@@ -335,29 +330,19 @@ A：完全支持，Clash具备稳定的蓝牙连接能力，且支持蓝牙5.0�
         Sing-box 支持根据端口匹配流量，将不同应用流量分配到指定节点。结合策略组可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验和管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何结合策略组实现智能分流？</h5></div>
-    <div class="panel-body">
-        Surfboard 可根据策略组和规则文件自动选择最优节点处理流量。不同应用或网站可分配不同节点，保证低延迟和高速访问，同时减少手动切换节点的操作。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
-    <div class="panel-body">
-        PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式与 SOCKS5 代理有什么区别？</h5></div>
-    <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理通常只影响支持代理的应用。TUN 更适合全局加速和游戏、视频等应用，保证所有流量通过节点，提高网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 支持哪些传输方式？</h5></div>
     <div class="panel-body">
         Matsuri 支持 TCP、gRPC、QUIC、WebSocket 等多种传输协议。用户可在配置文件中自由切换，根据服务器支持情况选择最优连接方式，以获得更低延迟与更强稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 支持自动测速吗？</h5></div>
+    <div class="panel-heading"><h5>如何合理设置 Clash 的 proxy-group 实现自动切换？</h5></div>
     <div class="panel-body">
-        支持。Shadowrocket 可以批量测速节点延迟并标记最佳连接。用户还可设置自动切换到最低延迟节点，实现稳定高速的上网体验，尤其在网络波动较大的环境中效果明显。<hr />    </div>
+        创建包含多个节点的策略组（如 `url-test` 或 `fallback`），设置合适的检测 URL 与检测频率，启用延迟优先或可用性优先策略。这样客户端会自动选择延迟最低或可用节点，提升稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 如何结合策略组实现智能分流？</h5></div>
+    <div class="panel-body">
+        Surfboard 可根据策略组和规则文件自动选择最优节点处理流量。不同应用或网站可分配不同节点，保证低延迟和高速访问，同时减少手动切换节点的操作。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何为 Trojan 配置 ALPN 与 SNI 提升伪装效果？</h5></div>
@@ -367,7 +352,22 @@ A：完全支持，Clash具备稳定的蓝牙连接能力，且支持蓝牙5.0�
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的加密方式推荐使用哪种？</h5></div>
     <div class="panel-body">
-        SSR 支持多种加密方式，如 aes-256-cfb、chacha20、rc4-md5 等。建议优先选择 chacha20 系列算法，在移动设备上性能更佳，同时具有较强的安全性。    </div>
+        SSR 支持多种加密方式，如 aes-256-cfb、chacha20、rc4-md5 等。建议优先选择 chacha20 系列算法，在移动设备上性能更佳，同时具有较强的安全性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何实现分应用代理？</h5></div>
+    <div class="panel-body">
+        Clash 可通过策略组和规则文件按应用分流，将特定应用的流量转发到指定节点。例如游戏走低延迟节点，网页浏览走普通节点，实现高效分流和优化网络速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式与 SOCKS5 代理有什么区别？</h5></div>
+    <div class="panel-body">
+        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理通常只影响支持代理的应用。TUN 更适合全局加速和游戏、视频等应用，保证所有流量通过节点，提高网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 支持自动测速吗？</h5></div>
+    <div class="panel-body">
+        支持。Shadowrocket 可以批量测速节点延迟并标记最佳连接。用户还可设置自动切换到最低延迟节点，实现稳定高速的上网体验，尤其在网络波动较大的环境中效果明显。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -415,16 +415,16 @@ A：完全支持，Clash具备稳定的蓝牙连接能力，且支持蓝牙5.0�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-17-node-share-links.htm" title="「7月17日」最高速度22.7M/S，2025年Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐">「7月17日」最高速度22.7M/S，2025年Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-free-node-subscribe-links.htm" title="「7月25日」最高速度22.3M/S，2025年Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「7月25日」最高速度22.3M/S，2025年Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-7-31.htm" title="「7月31日」最高速度21.4M/S，2025年Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「7月31日」最高速度21.4M/S，2025年Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-7.htm" title="「8月7日」最高速度19.2M/S，2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「8月7日」最高速度19.2M/S，2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-free-node-subscribe.htm" title="「7月28日」最高速度20.1M/S，2025年Trojan节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「7月28日」最高速度20.1M/S，2025年Trojan节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-7-29.htm" title="「7月29日」最高速度18.4M/S，2025年SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「7月29日」最高速度18.4M/S，2025年SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-23-free-node-subscribe-links.htm" title="「7月23日」最高速度20.4M/S，2025年Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「7月23日」最高速度20.4M/S，2025年Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-node-share-links.htm" title="「7月27日」最高速度21.9M/S，2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点免费机场订阅链接地址，翻墙机场推荐">「7月27日」最高速度21.9M/S，2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-node-subscribe.htm" title="「7月26日」最高速度19.4M/S，2025年Trojan节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「7月26日」最高速度19.4M/S，2025年Trojan节点/SSR节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-15-free-high-speed-nodes.htm" title="「7月15日」最高速度22.7M/S，2025年Clash节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐">「7月15日」最高速度22.7M/S，2025年Clash节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-node-subscribe.htm" title="「8月16日」最高速度22.8M/S，2025年V2ray节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「8月16日」最高速度22.8M/S，2025年V2ray节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-1.htm" title="「9月1日」最高速度18.6M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点免费机场订阅链接地址，翻墙机场推荐">「9月1日」最高速度18.6M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-23.htm" title="「8月23日」最高速度18M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐">「8月23日」最高速度18M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-node-subscribe.htm" title="「8月6日」最高速度21.6M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「8月6日」最高速度21.6M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Trojan节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-subscribe-node.htm" title="「8月22日」最高速度19.1M/S，2025年SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐">「8月22日」最高速度19.1M/S，2025年SSR节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-free-node-subscribe.htm" title="「8月24日」最高速度18.6M/S，2025年Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「8月24日」最高速度18.6M/S，2025年Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="「8月12日」最高速度18.2M/S，2025年Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点免费机场订阅链接地址，翻墙机场推荐">「8月12日」最高速度18.2M/S，2025年Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="「8月21日」最高速度21.4M/S，2025年Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点免费机场订阅链接地址，翻墙机场推荐">「8月21日」最高速度21.4M/S，2025年Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-18-free-subscribe-node.htm" title="「8月18日」最高速度19.1M/S，2025年SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/V2ray节点免费机场订阅链接地址，翻墙机场推荐">「8月18日」最高速度19.1M/S，2025年SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点/V2ray节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-15.htm" title="「8月15日」最高速度22.8M/S，2025年V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐">「8月15日」最高速度22.8M/S，2025年V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点免费机场订阅链接地址，翻墙机场推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -436,10 +436,10 @@ A：完全支持，Clash具备稳定的蓝牙连接能力，且支持蓝牙5.0�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
